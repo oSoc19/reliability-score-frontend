@@ -33,45 +33,45 @@
 
 /* Slide effect */
 
-.slide-enter {
+.slide-arrow-header-enter {
     width: 0px;
     overflow: hidden;
     float: left;
 }
 
-.slide-enter-active {
+.slide-arrow-header-enter-active {
     width: 40px;
     transition: all 100ms linear;
     overflow: hidden;
     float: left;
 }
 
-.slide-exit {
+.slide-arrow-header-exit {
     width: 40px;
     overflow: hidden;
     float: left;
 }
 
-.slide-exit-active {
+.slide-arrow-header-exit-active {
     width: 0px;
     transition: all 100ms linear;
     overflow: hidden;
     float: left;
 }
 
-.slide-exit-done {
+.slide-arrow-header-exit-done {
     width: 0px;
     overflow: hidden;
     float: left;
 }
 
-.slide-appear {
+.slide-arrow-header-appear {
     width: 0px;
     overflow: hidden;
     float: left;
 }
 
-.slide-appear-active {
+.slide-arrow-header-appear-active {
     width: 100px;
     transition: all 100ms linear;
     overflow: hidden;

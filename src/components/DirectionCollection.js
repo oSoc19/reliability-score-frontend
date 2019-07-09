@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NewDirectionItem from './NewDirectionItem'
+import DirectionItem from './DirectionItem'
 
 class DirectionCollection extends Component {
     constructor(props) {
@@ -52,7 +52,7 @@ class DirectionCollection extends Component {
                 <div className='direction-collection'>
                     {
                         predictions.map((prediction, index) => (
-                            <NewDirectionItem key={index} delay_probability={prediction.delay_probability} average_delay={prediction.average_delay} />
+                            <DirectionItem key={index} delay_probability={prediction.delay_probability} average_delay={prediction.average_delay} />
                         ))
                     }
                 </div>

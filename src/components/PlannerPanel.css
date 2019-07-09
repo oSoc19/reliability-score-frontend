@@ -57,6 +57,12 @@
     background: #ff4750;
 }
 
+.direction-item .ant-timeline-item-head-grey {
+    border-color: #bdc3c7!important;
+    background: #bdc3c7;
+    margin-top: 20px!important;
+}
+
 .direction-item .ant-timeline {
     margin-left: 60px;
 }
@@ -77,12 +83,31 @@
     font-weight: 500;
 }
 
-.direction-collection .direction-item .infos h2 {
+.direction-collection .direction-item .infos .departure {
     float: left;
+    margin-left: 30px;
+}
+
+.direction-collection .direction-item .infos .departure h2 {
     font-size: 17px;
     color: #484848;
     font-weight: 300;
-    margin-left: 30px;
+}
+
+.direction-collection .direction-item .infos .departure span {
+    color: #484848;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: -5px;
+    display: block;
+}
+
+.direction-collection .direction-item .infos .platform {
+    float: right;
+    display: block;
+    font-weight: 300;
+    color: #484848;
+    margin-top: 3px;
 }
 
 .direction-collection .direction-item .ant-timeline-item-head {
@@ -103,6 +128,10 @@
 
 .direction-collection .direction-item .timeline {
     float: left;
+}
+
+.direction-collection .direction-item .timeline.wide {
+    float: none;
 }
 
 .direction-collection .direction-item .informations {
@@ -127,8 +156,49 @@
 }
 
 .direction-collection .direction-item .progress-info span.percent {
-    color:#484848;
+    color: #484848;
     font-weight: 300;
     font-size: 10px;
-    margin-top:4px;
+    margin-top: 4px;
+}
+
+.direction-collection .direction-item .details-stations .infos {
+    margin-bottom: 5px;
+}
+
+.direction-collection .direction-item .details-stations .infos .line {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.direction-collection .direction-item .details-stations .line.station-name {
+    margin-top: -15px;
+}
+
+.direction-collection .direction-item .details-stations .infos .departure {
+    margin-left: 75px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 75px);
+}
+
+.direction-collection .direction-item .details-stations .infos .departure .platform {
+    display: block;
+    font-weight: 300;
+    color: #484848;
+    margin-top: 3px;
+    font-style: normal;
+}
+
+.direction-collection .direction-item .details-stations .infos .line.arrival-time {
+    margin-top: -15px;
+}
+
+.direction-collection .direction-item .details-stations .detail:last-of-type {
+    margin-bottom: 15px;
+}
+
+.direction-collection .direction-item .global-delay-details {
+    margin-top: 5px;
 }

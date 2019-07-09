@@ -69,7 +69,7 @@ class DirectionForm extends Component {
                     </Radio.Group>
                 </div>
 
-                <Button onClick={this.handleSubmit} type="primary" loading={this.state.loading}>{this.state.loading ? 'Please wait' : 'Let\' plan !'}</Button>
+                <Button onClick={this.handleSubmit} type="primary" loading={this.state.loading}>{this.state.loading ? 'Please wait' : 'Let\' plan!'}</Button>
             </form>
         )
     }

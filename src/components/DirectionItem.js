@@ -1,95 +1,52 @@
 import React, { Component } from 'react'
-import { Timeline } from 'antd'
-import WhiteWarningIcon from '../images/white-warning.png'
-import DirectionChart from './DirectionChart.js'
-import { CSSTransition } from 'react-transition-group'
+import { Timeline, Progress } from 'antd'
+import DirectionStationDetail from './DirectionStationDetail'
+import DirectionDetail from './DirectionDetail'
+import StationItem from './StationItem';
 
 class DirectionItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            chartVisible: false,
-        };
+    state = {
+        showDetails: false
     }
 
-    toggleChart() {
-        this.setState(prevState => ({ chartVisible: !prevState.chartVisible }));
+    toggleShowDetail = () => {
+        this.setState({
+            showDetails: !this.state.showDetails
+        })
     }
 
     render() {
         return (
-            <CSSTransition in={true} appear={true} timeout={300} classNames='fade'>
-                <div className='direction-item'>
-                    <h2>Vilvoorde → Gent-Sint-Pieters</h2>
+            <div className='direction-item white-box shadow' onClick={this.toggleShowDetail}>
+                <div className={`timeline ${this.state.showDetails ? 'wide' : ''}`}>
+                    <Timeline>
+                        <StationItem color={'green'} time={'10:30'} city={'Antwerpen'} platform={'4'} type={'IC'} direction={'Leuven'} showPlatform={this.state.showDetails} />
 
-                    <div className='details'>
-                        {
-                            this.props.delay_probability > 20 ?
-                                <div className='important-sign'>
-                                    <img src={WhiteWarningIcon} alt='important notice' />
-                                </div>
-                                : null
-                        }
+                        {this.state.showDetails ? <DirectionStationDetail /> : null}
 
-                        <div className='inside-content'>
-                            <Timeline>
-                                <Timeline.Item color="blue">
-                                    <h3>Vilvoorde</h3>
-                                    <div className='station-informations'>
-                                        <div className='from'>
-                                            <p>15:09</p>
-                                            <p>Platform <b>5</b></p>
-                                        </div>
-
-                                        <div className='to'>
-                                            <p>15:12</p>
-                                            <p>Platform <b>11</b></p>
-                                        </div>
-                                    </div>
-                                </Timeline.Item>
-
-                                <Timeline.Item color="blue">
-                                    <h3>Brussel-Zuid</h3>
-                                    <div className='station-informations'>
-                                        <div className='from'>
-                                            <p>15:09</p>
-                                            <p>Platform <b>14</b></p>
-                                        </div>
-                                    </div>
-                                </Timeline.Item>
-
-                                <Timeline.Item color={this.props.delay_probability > 20 ? "orange" : "blue"}>
-                                    <h3>Gent-Sint-Pieters</h3>
-                                    <div className='station-informations'>
-                                        <div className='from'>
-                                            <p>15:09</p>
-                                            <p>Platform <b>3</b></p>
-                                        </div>
-                                    </div>
-                                </Timeline.Item>
-
-                            </Timeline>
-
-                            {
-                                this.props.delay_probability > 20 ?
-                                    <div>
-                                        <div className='last-direction-notice' onClick={() => this.toggleChart()} >
-                                            <div className='last-direction-notice-icon' />
-                                            <p>You <b>{this.props.delay_probability > 50 ? 'will probably' : 'might'}</b> arrive too late with approximately <b>{this.props.average_delay} min.</b> delay.</p>
-                                        </div>
-
-                                        {
-                                            this.state.chartVisible ? <DirectionChart /> : null
-                                        }
-                                    </div>
-                                    : null
-                            }
-                        </div>
-                    </div>
+                        <StationItem color={'red'} time={'11:40'} city={'Gent-Sint-Pieters'} platform={'12'} showPlatform={this.state.showDetails} isLast={true} />
+                    </Timeline>
                 </div>
-            </CSSTransition>
+
+                {!this.state.showDetails ? (<div className='informations'><Progress
+                        type="dashboard"
+                        strokeColor={{
+                            "0%": "#ff6b6b",
+                            "100%": "#54a0ff"
+                        }}
+                        format={() => (
+                            <div className='progress-info'>
+                                <span>5 min.</span>
+                                <span className='percent'>80%</span>
+                            </div>
+                        )}
+                        percent={80}
+                        width={70}
+                    />
+                </div>) : <DirectionDetail />}
+            </div>
         )
     }
 }
 
-export default DirectionItem;
+export default DirectionItem

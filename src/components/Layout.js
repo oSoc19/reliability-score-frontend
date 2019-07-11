@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Header from './Header'
 import SearchPanel from './SearchPanel'
 import PlannerPanel from './PlannerPanel'
+import queryString from 'query-string'
 
 class Layout extends Component {
     render() {
@@ -12,9 +13,11 @@ class Layout extends Component {
         let withSubHeader = false
         let titleHeader = 'Reliability Score'
 
+        let parsedUrl = queryString.parse(this.props.location.search)
+
         switch (destination) {
             case 'planner':
-                currentComponent = <PlannerPanel />
+                currentComponent = <PlannerPanel direction={parsedUrl} />
                 withBackButton = true
                 titleHeader = 'Search Result'
                 withSubHeader = true
@@ -29,7 +32,7 @@ class Layout extends Component {
 
         return (
             <Fragment>
-                <Header withBackButton={withBackButton} title={titleHeader} withSubHeader={withSubHeader} />
+                <Header withBackButton={withBackButton} title={titleHeader} withSubHeader={withSubHeader} direction={parsedUrl} />
 
                 {currentComponent}
             </Fragment>

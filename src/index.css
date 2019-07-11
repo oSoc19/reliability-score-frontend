@@ -85,3 +85,7 @@ h1, h2, h3 {
     height: 100%;
     z-index:999;
 }
+
+.wrong-field .ant-input {
+    border:1px solid #ff4650;
+}

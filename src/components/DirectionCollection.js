@@ -12,7 +12,6 @@ class DirectionCollection extends Component {
     }
 
     componentDidMount() {
-
         for(let i=0; i < 5; i++) {
             fetch("https://stunning-voyageurs-87289.herokuapp.com/delay/station")
             .then( response => response.json())
@@ -47,7 +46,6 @@ class DirectionCollection extends Component {
             return <div>Loading...</div>
         }
         else {
-            console.log(JSON.stringify(predictions))
             return (
                 <div className='direction-collection'>
                     {

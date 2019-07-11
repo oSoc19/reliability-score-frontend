@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Timeline, Progress } from 'antd'
+import { Timeline } from 'antd'
 
 class DirectionStationDetail extends Component {
     render() {

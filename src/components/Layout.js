@@ -22,7 +22,7 @@ class Layout extends Component {
             default:
                 currentComponent = <SearchPanel />
                 withBackButton = false
-                titleHeader = 'Reliability Score'
+                titleHeader = 'Infrabel'
                 withSubHeader = false
                 break;
         }
@@ -31,7 +31,6 @@ class Layout extends Component {
             <Fragment>
                 <Header withBackButton={withBackButton} title={titleHeader} withSubHeader={withSubHeader} />
 
-                
                 {currentComponent}
             </Fragment>
         )

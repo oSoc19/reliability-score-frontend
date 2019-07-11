@@ -10,7 +10,7 @@ class SearchPanel extends Component {
     render() {
         return (
             <div className='content global search-panel'>
-                <h2>Find your plan</h2>
+                <h2>Find your reliability</h2>
 
                 <DirectionForm CSSClassNames='white-box shadow' />
             </div>

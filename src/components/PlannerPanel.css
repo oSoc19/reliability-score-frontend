@@ -137,11 +137,53 @@
 .direction-collection .direction-item .informations {
     float: right;
     border-left: 1px solid #E2E8ED;
-    padding-left: 15px;
+    padding: 25px 0 25px 15px;
 }
 
-.direction-collection .direction-item .informations .ant-progress {
+.dots-item {
+    overflow: hidden;
+}
+
+.global-dots {
+    overflow: hidden;
+    margin-left: calc((100% - 45px) / 2);
+}
+
+.global-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    margin-right: 5px;
+    float: left;
+}
+
+.global-dots .dot.green {
+    background: #83cc42;
+}
+
+.global-dots .dot.grey {
+    background: #dfe8f0;
+}
+
+.global-dots .dot.red {
+    background: #ff4750;
+}
+
+.global-dots .dot.orange {
+    background: #ff9600;
+}
+
+.global-dots .dot:last-of-type {
+    margin-right: 0;
+}
+
+.dots-item span {
+    display: block;
     margin-top: 5px;
+    font-weight: 400;
+    color: #484848;
+    font-size: 12px;
+    text-align: center;
 }
 
 .direction-collection .direction-item .ant-progress-circle .ant-progress-text {
@@ -201,4 +243,80 @@
 
 .direction-collection .direction-item .global-delay-details {
     margin-top: 5px;
+}
+
+.content .how-works {
+    margin-bottom: 20px;
+}
+
+.content .how-works h2 {
+    text-align: center;
+    font-weight: 600;
+    color: #484848;
+    margin-bottom: 20px;
+}
+
+.content .how-works .dots {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 400px) {
+    .content .how-works .dots .dots-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .content .how-works .dots .dots-item:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.content .how-works .ant-btn.ant-btn-primary {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.how-works .dots-item span {
+    font-size: 14px;
+}
+
+.how-works .close {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: calc(100% - 20px);
+    margin-bottom: -23px;
+    padding: 0;
+    margin-top: -2px;
+    cursor: pointer;
+}
+
+.how-works .close:hover .icon-close:before {
+    color: #025aa0;
+}
+
+.icon-close:before {
+    content: "\e900";
+    font-family: 'icomoon';
+    font-size: 18px;
+    margin: 0;
+    color: #bdc3c7;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+@media only screen and (max-width: 330px) {
+    header .details .line:last-of-type {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .content .direction-collection .direction-item .informations {
+        display: none;
+    }
 }

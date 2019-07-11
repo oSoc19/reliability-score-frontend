@@ -12,7 +12,7 @@ class StationItem extends Component {
                     <div className='departure'>
                         <h2>{this.props.city}</h2>
 
-                        {this.props.type && this.props.direction ? <span><b>{this.props.type}</b> Train to <b>{this.props.city}</b></span> : null}
+                        {this.props.type && this.props.direction ? <span><b>{this.props.type}</b> Train to <b>{this.props.direction}</b></span> : null}
                     </div>
 
                     {this.props.showPlatform ? <span className='platform'>Platform <b>{this.props.platform}</b></span> : null}

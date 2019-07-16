@@ -96,3 +96,7 @@ h1, h2, h3 {
     width:100%;
     height:100%;
 }
+
+.wrong-field .ant-input {
+    border:1px solid #ff4650;
+}

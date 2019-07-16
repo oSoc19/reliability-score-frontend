@@ -4,6 +4,8 @@ import DirectionCollection from './DirectionCollection'
 import ArrowIcon from '../images/light-arrow-blue.png'
 import DotsTutorial from './DotsTutorial'
 import Cookies from 'universal-cookie'
+import Loading from './Loading';
+import NoMoreResult from './NoMoreResult';
 
 class PlannerPanel extends Component {
     state = {
@@ -22,7 +24,7 @@ class PlannerPanel extends Component {
 
     componentWillMount = () => {
         const cookie = new Cookies()
-        if(!cookie.get('tutorial'))
+        if (!cookie.get('tutorial'))
             this.setState({
                 showTutorial: true
             })
@@ -38,22 +40,12 @@ class PlannerPanel extends Component {
                         <img src={ArrowIcon} alt='previous' />
                         Previous
                     </div>
-
-                    <div className='btn next'>
-                        Next
-                        <img src={ArrowIcon} alt='previous' />
-                    </div>
-                </div>
-
-                <div className='title-day'>
-                    <h2>Today <em>(07/07/2019)</em></h2>
                 </div>
 
                 <DirectionCollection />
 
-                <p className='notice'>
-                    There are no more trains! <span role="img" aria-label="pensive face">😔</span>
-                </p>
+                <Loading />
+                <NoMoreResult />
             </div>
         )
     }

@@ -8,6 +8,7 @@
     color: #025aa0;
     font-size: 16px;
     cursor: pointer;
+    margin: auto auto 10px auto;
 }
 
 .content .btn-prev-next-group .btn img {
@@ -17,16 +18,12 @@
 }
 
 .content .btn-prev-next-group .btn.prev img {
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
     margin-right: 5px;
-}
-
-.content .btn-prev-next-group .btn.next img {
-    margin-left: 5px;
 }
 
 .content .title-day h2 {
@@ -124,6 +121,7 @@
 
 .direction-item.white-box {
     padding-bottom: 3px;
+    cursor: pointer;
 }
 
 .direction-collection .direction-item .timeline {

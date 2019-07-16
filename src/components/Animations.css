@@ -1,0 +1,79 @@
+/* Fade effect */
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: all 300ms linear;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: all 300ms linear;
+}
+
+.fade-exit-done {
+    opacity: 0;
+}
+
+.fade-appear {
+    opacity: 0;
+}
+
+.fade-appear-active {
+    opacity: 1;
+    transition: all 300ms linear;
+}
+
+/* Slide effect */
+
+.slide-arrow-header-enter {
+    width: 0px;
+    overflow: hidden;
+    float: left;
+}
+
+.slide-arrow-header-enter-active {
+    width: 40px;
+    transition: all 100ms linear;
+    overflow: hidden;
+    float: left;
+}
+
+.slide-arrow-header-exit {
+    width: 40px;
+    overflow: hidden;
+    float: left;
+}
+
+.slide-arrow-header-exit-active {
+    width: 0px;
+    transition: all 100ms linear;
+    overflow: hidden;
+    float: left;
+}
+
+.slide-arrow-header-exit-done {
+    width: 0px;
+    overflow: hidden;
+    float: left;
+}
+
+.slide-arrow-header-appear {
+    width: 0px;
+    overflow: hidden;
+    float: left;
+}
+
+.slide-arrow-header-appear-active {
+    width: 100px;
+    transition: all 100ms linear;
+    overflow: hidden;
+    float: left;
+}

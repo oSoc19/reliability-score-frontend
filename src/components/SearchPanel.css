@@ -1,0 +1,55 @@
+.content.search-panel h2:first-of-type {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.content.search-panel form span.title-form {
+    font-size: 14px;
+    color: #025aa0;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.content.search-panel form span.title-form:first-of-type {
+    margin-top: 0;
+}
+
+.content.search-panel form button {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.content.search-panel .time-form {
+    display: flex;
+}
+
+@media only screen and (max-width: 999px) {
+    .content.search-panel .time-form {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .content.search-panel .time-form .item {
+        margin-right: 50px;
+    }
+}
+
+.content.search-panel .time-form .item {
+    margin-top: 15px;
+}
+
+.content.search-panel form .radio-line {
+    margin-top:20px;
+}
+
+.content.search-panel form .ant-radio-button-wrapper {
+    width:50%;
+    text-align: center;
+}
+
+.content.search-panel form .ant-radio-group {
+    width:100%;
+}

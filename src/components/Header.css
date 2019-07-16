@@ -1,0 +1,97 @@
+header {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 900;
+}
+
+header .top {
+    overflow: hidden;
+}
+
+header .top .header-back-btn {
+    float: left;
+    margin-top: 5px;
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid #E2E8ED;
+    cursor: pointer;
+}
+
+header .top .logo {
+    float: left;
+    overflow: hidden;
+}
+
+header .top .logo img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 10px;
+}
+
+header .top .logo h1 {
+    float: left;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+header .top .header-back-btn:hover .icon-arrow-left:before {
+    color: #025aa0;
+}
+
+.icon-arrow-left:before {
+    content: "\e901";
+    font-family: 'icomoon';
+    font-size: 20px;
+    color: #bdc3c7;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.big-header {
+    height: 125px;
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+}
+
+header .details {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+header .details .line {
+    overflow: hidden;
+}
+
+header .details .line.direction {
+    margin-bottom:5px;
+}
+
+header .details .item {
+    font-size:15px;
+    color:#045AA0;
+    float:left;
+    margin-right:20px;
+}
+
+header .details .item:last-of-type {
+    margin-right: 0;
+}
+
+header .details .item img {
+    width:15px;
+    height:15px;
+    margin-right:10px;
+}

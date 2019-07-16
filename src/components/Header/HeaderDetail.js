@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import DepartureIcon from '../images/departure.png'
-import ArrivalIcon from '../images/arrival.png'
-import CalendarIcon from '../images/calendar.png'
-import ClockIcon from '../images/clock.png'
-import { getStringDate, getStringTime } from './Util'
+import DepartureIcon from '../../images/departure.png'
+import ArrivalIcon from '../../images/arrival.png'
+import CalendarIcon from '../../images/calendar.png'
+import ClockIcon from '../../images/clock.png'
+import { getStringDate, getStringTime } from '../Util'
 
 class HeaderDetail extends Component {
     render() {

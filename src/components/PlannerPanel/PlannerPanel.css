@@ -57,7 +57,7 @@
 .direction-item .ant-timeline-item-head-grey {
     border-color: #bdc3c7!important;
     background: #bdc3c7;
-    margin-top: 20px!important;
+    margin-top: 30px!important;
 }
 
 .direction-item .ant-timeline {
@@ -208,7 +208,7 @@
 
 .direction-collection .direction-item .details-stations .infos .line {
     overflow: hidden;
-    margin: 0;
+    margin: 5px 0;
     padding: 0;
 }
 
@@ -218,8 +218,6 @@
 
 .direction-collection .direction-item .details-stations .infos .departure {
     margin-left: 75px;
-    display: flex;
-    justify-content: space-between;
     width: calc(100% - 75px);
 }
 

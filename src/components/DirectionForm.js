@@ -78,7 +78,6 @@ class DirectionForm extends Component {
     }
 
     handleSelectTime = value => {
-        console.log(value)
         this.setState({
             time: value
         })

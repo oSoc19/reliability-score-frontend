@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import Header from './Header'
+import Header from './Header/Header'
 import SearchPanel from './SearchPanel'
-import PlannerPanel from './PlannerPanel'
+import PlannerPanel from './PlannerPanel/PlannerPanel'
 import queryString from 'query-string'
 
 class Layout extends Component {

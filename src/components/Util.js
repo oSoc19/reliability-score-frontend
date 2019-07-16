@@ -17,3 +17,19 @@ export const getStringTime = str => {
 export const removeUTCDate = date => {
     return new Date(null, null, null, date.getUTCHours(), date.getMinutes())
 }
+
+export const convertTimestampToTime = timestamp => {
+    let date = new Date(timestamp * 1000)
+
+    return `${landingZero(date.getHours())}:${landingZero(date.getMinutes())}`
+}
+
+export const getTrainType = id => {
+    var filterRegex = /^(S[0-9])|(ICE)|(THA)|(IC)|(EUR)|(TGV)|(P)|(L)/
+    let matched = filterRegex.exec(id)
+
+    if(!matched)
+        return 'Unknown'
+
+    return matched[0]
+}

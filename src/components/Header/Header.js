@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react'
 import propTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 import './Header.css'
-import './Animations.css'
-import Logo from '../images/logo.png'
+import '../Animations.css'
+import Logo from '../../images/logo.png'
 import HeaderDetail from './HeaderDetail'
-import DirectionForm from './DirectionForm'
+import DirectionForm from '../DirectionForm'
 import HeaderBackButton from './HeaderBackButton';
 
 class Header extends Component {

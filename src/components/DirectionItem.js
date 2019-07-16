@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Timeline, Progress } from 'antd'
+import { Timeline } from 'antd'
 import DirectionStationDetail from './DirectionStationDetail'
 import DirectionDetail from './DirectionDetail'
 import StationItem from './StationItem';

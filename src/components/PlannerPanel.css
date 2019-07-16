@@ -1,154 +1,322 @@
+.content .btn-prev-next-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.content .btn-prev-next-group .btn {
+    color: #025aa0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.content .btn-prev-next-group .btn img {
+    width: 22px;
+    height: 22px;
+    margin-top: -2px;
+}
+
+.content .btn-prev-next-group .btn.prev img {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    margin-right: 5px;
+}
+
+.content .btn-prev-next-group .btn.next img {
+    margin-left: 5px;
+}
+
+.content .title-day h2 {
+    font-size: 30px;
+}
+
+.content .title-day h2 em {
+    font-size: 15px;
+    font-style: normal;
+}
+
 .direction-collection {
     width: 100%;
 }
 
 .direction-collection .direction-item {
-    margin: 10px 0;
-}
-
-.direction-collection .direction-item h2 {
-    margin-top: 0;
-    font-weight: 600;
-    font-size: 26px;
-}
-
-.direction-collection .direction-item .details {
-    background: #f8f9fe;
-    padding: 0;
-    border-radius: 4px;
+    margin: 10px 0 20px;
     overflow: hidden;
-    border: 1px solid #DBDCE0;
 }
 
-.direction-collection .direction-item .details .important-sign {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 50px 50px 0;
-    border-color: transparent orange transparent transparent;
-    margin-left: calc(100% - 50px);
-    margin-bottom: -40px;
+.direction-item .ant-timeline-item-head-green {
+    border-color: #93c958;
+    background: #93c958;
 }
 
-.direction-collection .direction-item .details .important-sign img {
-    width: 20px;
-    height: 20px;
-    margin-left: 26px;
-    margin-top: 6px;
+.direction-item .ant-timeline-item-head-red {
+    border-color: #ff4750;
+    background: #ff4750;
 }
 
-.ant-steps-item-process>.ant-steps-item-tail::after {
-    background: #1890ff;
+.direction-item .ant-timeline-item-head-grey {
+    border-color: #bdc3c7!important;
+    background: #bdc3c7;
+    margin-top: 20px!important;
 }
 
-.direction-collection .direction-item .details .ant-timeline-item-content h3 {
-    font-size: 20px;
+.direction-item .ant-timeline {
+    margin-left: 60px;
 }
 
-.direction-collection .direction-item .details .station-informations div {
-    display: flex;
+.direction-collection .ant-timeline-item-tail {
+    border-left-style: dashed;
 }
 
-@media only screen and (max-width: 999px) {
-    .direction-collection .direction-item .details .station-informations div {
-        justify-content: space-between;
-    }
+.direction-collection .direction-item .infos {
+    margin-left: -75px;
+    overflow: hidden;
 }
 
-@media only screen and (min-width: 1000px) {
-    .direction-collection .direction-item .details .station-informations div p {
-        margin-right: 20px;
-    }
-    .direction-collection .direction-item .details .station-informations div p:last-of-type {
-        margin-right: 0px;
-    }
+.direction-collection .direction-item .infos h3 {
+    float: left;
+    font-size: 17px;
+    color: #484848;
+    font-weight: 500;
 }
 
-.direction-collection .direction-item .details .station-informations div.to {
-    margin-top: 15px;
-}
-
-.direction-collection .direction-item .details .station-informations p {
-    font-size: 15px;
-}
-
-.ant-timeline-item-head {
-    width: 20px;
-    height: 20px;
-}
-
-.ant-timeline-item-content {
+.direction-collection .direction-item .infos .departure {
+    float: left;
     margin-left: 30px;
 }
 
-.ant-timeline-item-tail {
-    left: 9px;
+.direction-collection .direction-item .infos .departure h2 {
+    font-size: 17px;
+    color: #484848;
+    font-weight: 300;
 }
 
-.ant-timeline-item {
+.direction-collection .direction-item .infos .departure span {
+    color: #484848;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: -5px;
+    display: block;
+}
+
+.direction-collection .direction-item .infos .platform {
+    float: right;
+    display: block;
+    font-weight: 300;
+    color: #484848;
+    margin-top: 3px;
+}
+
+.direction-collection .direction-item .ant-timeline-item-head {
+    margin-top: 2px;
+}
+
+.direction-collection .direction-item .ant-timeline-item:last-of-type {
     padding: 0;
 }
 
-.direction-collection .direction-item .details .last-direction-notice {
-    color: orange;
+.direction-collection .direction-item .ant-timeline-item-last>.ant-timeline-item-content {
+    min-height: 0;
+}
+
+.direction-item.white-box {
+    padding-bottom: 3px;
+}
+
+.direction-collection .direction-item .timeline {
+    float: left;
+}
+
+.direction-collection .direction-item .timeline.wide {
+    float: none;
+}
+
+.direction-collection .direction-item .informations {
+    float: right;
+    border-left: 1px solid #E2E8ED;
+    padding: 25px 0 25px 15px;
+}
+
+.dots-item {
     overflow: hidden;
-    cursor: pointer;
 }
 
-.direction-collection .direction-item .details .last-direction-notice img {
-    width: 20px;
-    height: 20px;
+.global-dots {
+    overflow: hidden;
+    margin-left: calc((100% - 45px) / 2);
+}
+
+.global-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    margin-right: 5px;
     float: left;
-    margin-right: 10px;
 }
 
-@media only screen and (max-width: 999px) {
-    .direction-collection .direction-item .details .last-direction-notice img {
-        margin-top: 5px;
-    }
+.global-dots .dot.green {
+    background: #83cc42;
 }
 
-.direction-collection .direction-item .details .last-direction-notice p {
-    float: left;
-    width: calc(100% - 30px);
+.global-dots .dot.grey {
+    background: #dfe8f0;
+}
+
+.global-dots .dot.red {
+    background: #ff4750;
+}
+
+.global-dots .dot.orange {
+    background: #ff9600;
+}
+
+.global-dots .dot:last-of-type {
+    margin-right: 0;
+}
+
+.dots-item span {
+    display: block;
+    margin-top: 5px;
+    font-weight: 400;
+    color: #484848;
+    font-size: 12px;
+    text-align: center;
+}
+
+.direction-collection .direction-item .ant-progress-circle .ant-progress-text {
+    font-size: 14px;
+    font-family: 'Work Sans', sans-serif;
+    color: #EE5253;
+    font-weight: 600;
+}
+
+.direction-collection .direction-item .progress-info span {
+    display: block;
+}
+
+.direction-collection .direction-item .progress-info span.percent {
+    color: #484848;
+    font-weight: 300;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.direction-collection .direction-item .details-stations .infos {
+    margin-bottom: 5px;
+}
+
+.direction-collection .direction-item .details-stations .infos .line {
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
-.last-direction-notice {
-    margin: 1.75%;
-    padding: 1%;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    overflow: hidden;
+.direction-collection .direction-item .details-stations .line.station-name {
+    margin-top: -15px;
 }
 
-.last-direction-notice:hover {
-    color: white;
-    background-color: orange;
+.direction-collection .direction-item .details-stations .infos .departure {
+    margin-left: 75px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 75px);
 }
 
-.last-direction-notice:hover p {
-    color: white;
+.direction-collection .direction-item .details-stations .infos .departure .platform {
+    display: block;
+    font-weight: 300;
+    color: #484848;
+    margin-top: 3px;
+    font-style: normal;
 }
 
-.last-direction-notice-icon {
+.direction-collection .direction-item .details-stations .infos .line.arrival-time {
+    margin-top: -15px;
+}
+
+.direction-collection .direction-item .details-stations .detail:last-of-type {
+    margin-bottom: 15px;
+}
+
+.direction-collection .direction-item .global-delay-details {
+    margin-top: 5px;
+}
+
+.content .how-works {
+    margin-bottom: 20px;
+}
+
+.content .how-works h2 {
+    text-align: center;
+    font-weight: 600;
+    color: #484848;
+    margin-bottom: 20px;
+}
+
+.content .how-works .dots {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 400px) {
+    .content .how-works .dots .dots-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .content .how-works .dots .dots-item:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.content .how-works .ant-btn.ant-btn-primary {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.how-works .dots-item span {
+    font-size: 14px;
+}
+
+.how-works .close {
     width: 20px;
     height: 20px;
-    background-image: url('../images/orange-warning.png');
-    background-size: 20px;
-    float: left;
-    margin-right: 10px;
+    position: relative;
+    left: calc(100% - 20px);
+    margin-bottom: -23px;
+    padding: 0;
+    margin-top: -2px;
+    cursor: pointer;
 }
 
-.last-direction-notice:hover .last-direction-notice-icon {
-    background-image: url('../images/white-warning.png');
+.how-works .close:hover .icon-close:before {
+    color: #025aa0;
 }
 
-.graph-container {
-    display: flex;
-    flex-direction: row;     /* make main axis horizontal (default setting) */
-    justify-content: center; /* center items horizontally, in this case */
-    align-items: center;     /* center items vertically, in this case */
+.icon-close:before {
+    content: "\e900";
+    font-family: 'icomoon';
+    font-size: 18px;
+    margin: 0;
+    color: #bdc3c7;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+@media only screen and (max-width: 330px) {
+    header .details .line:last-of-type {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .content .direction-collection .direction-item .informations {
+        display: none;
+    }
 }

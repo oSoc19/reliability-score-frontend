@@ -1,34 +1,54 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import propTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 import './Header.css'
 import './Animations.css'
 import Logo from '../images/logo.png'
+import HeaderDetail from './HeaderDetail'
+import DirectionForm from './DirectionForm'
+import HeaderBackButton from './HeaderBackButton';
 
 class Header extends Component {
+    state = {
+        isPopup: false
+    }
+
+    handleShowPopup = status => {
+        this.setState({
+            isPopup: status
+        })
+    }
+
     render() {
-        console.log(this.props.withBackButton)
-
         return (
-            <header className='shadow'>
-                <div className='content'>
-                    <CSSTransition in={this.props.withBackButton} mountOnEnter unmountOnExit timeout={100} classNames='slide'>
-                        <Link to='/'><div className='header-back-btn' onClick={this.handleGoToBack}><span className="icon-arrow-left"></span></div></Link>
-                    </CSSTransition>
+            <Fragment>
+                {this.state.isPopup ? <div className='popup-direction-form'><Header withBackButton={true} title='Update Search' withSubHeader={false} handleGoBack={() => this.handleShowPopup(false)} /><div className='content global search-panel'><DirectionForm /></div></div> : null}
+                
+                <header className={`shadow ${this.props.withSubHeader ? 'big-header' : ''}`}>
+                    <div className='content'>
+                        <div className='top'>
+                            <CSSTransition in={this.props.withBackButton} mountOnEnter unmountOnExit timeout={100} classNames='slide-arrow-header'>
+                                <HeaderBackButton handleGoBack={this.props.handleGoBack} />
+                            </CSSTransition>
 
-                    <div className='logo' onClick={this.handleGoBack}>
-                        <img src={Logo} alt='Reliability Score logo' />
-                        <h1>Reliability Score</h1>
+                            <div className='logo' onClick={this.handleGoBack}>
+                                <CSSTransition in={!this.props.withBackButton} mountOnEnter unmountOnExit timeout={100} classNames='fade'>
+                                    <img src={Logo} alt='Reliability Score logo' />
+                                </CSSTransition>
+                                <h1>{this.props.title}</h1>
+                            </div>
+                        </div>
+
+                        {this.props.withSubHeader ? <HeaderDetail handleShowPopup={() => this.handleShowPopup(true)} /> : null}
                     </div>
-                </div>
-            </header >
+                </header >
+            </Fragment>
         )
     }
 }
 
 Header.propTypes = {
-    withBackButton: propTypes.bool.isRequired
+    title: propTypes.string.isRequired
 }
 
 export default Header

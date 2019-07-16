@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { AreaChart } from 'react-chartkick';
-import 'chart.js';
-import './chart-options.js';
+import { AreaChart } from 'react-chartkick'
+import 'chart.js'
+import './chart-options.js'
 
 class DirectionChart extends Component {
     render() {
@@ -13,4 +13,4 @@ class DirectionChart extends Component {
     }
 }
 
-export default DirectionChart;
+export default DirectionChart

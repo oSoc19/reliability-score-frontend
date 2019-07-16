@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DirectionItem from './DirectionItem';
+import DirectionItem from './DirectionItem'
 
 class DirectionCollection extends Component {
     constructor(props) {

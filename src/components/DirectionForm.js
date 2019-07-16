@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { AutoComplete, Button, DatePicker, TimePicker, Radio } from 'antd'
 import moment from 'moment'
 import { Redirect } from 'react-router-dom'
-import { getStringDate, getStringTime } from './Util'
+import { removeUTCDate } from './Util'
 
 class DirectionForm extends Component {
     state = {
@@ -16,7 +16,8 @@ class DirectionForm extends Component {
         arrivalStationMissing: false,
 
         date: this.props.direction && this.props.direction.date ? moment(new Date(this.props.direction.date), 'DD/MM/YYYY') : moment(new Date(), 'DD/MM/YYYY'),
-        time: this.props.direction && this.props.direction.time ? moment(new Date(this.props.direction.time), 'HH:mm') : moment(new Date(), 'HH:mm')
+        time: this.props.direction && this.props.direction.time ? moment(removeUTCDate(new Date(this.props.direction.time)), 'HH:mm') : moment(new Date(), 'HH:mm'),
+        isArrivalTime: this.props.direction && this.props.direction.timesel === 'arrival' ? true : false
     }
 
     handleSubmit = () => {
@@ -24,10 +25,10 @@ class DirectionForm extends Component {
         this.state.departureStation ? this.setState({ departureStationMissing: false }) : this.setState({ departureStationMissing: true })
         this.state.arrivalStation ? this.setState({ arrivalStationMissing: false }) : this.setState({ arrivalStationMissing: true })
 
-        if(this.state.departureStation && this.state.arrivalStation) 
-            this.setState({ 
-                loading: true, 
-                redirect: true 
+        if (this.state.departureStation && this.state.arrivalStation)
+            this.setState({
+                loading: true,
+                redirect: true
             })
     }
 
@@ -77,14 +78,24 @@ class DirectionForm extends Component {
     }
 
     handleSelectTime = value => {
+        console.log(value)
         this.setState({
             time: value
         })
     }
 
+    handleSetTimesel = value => {
+        value.target.value === 'arrival' ? this.setState({ isArrivalTime: true }) : this.setState({ isArrivalTime: false })
+    }
+
     render() {
-        if (this.state.redirect)
-            return <Redirect to={`/planner/?from=${this.state.departureStation}&to=${this.state.arrivalStation}&date=${this.state.date ? this.state.date : moment(new Date(), 'DD/MM/YYYY')}&time=${this.state.time ? this.state.time : moment(new Date(), 'HH:mm')}`}></Redirect>
+        if (this.state.redirect) {
+            if (this.props.handleGoBack) {
+                this.props.handleGoBack()
+            }
+
+            return <Redirect to={`/planner/?from=${this.state.departureStation}&to=${this.state.arrivalStation}&date=${this.state.date ? this.state.date : moment(new Date(), 'DD/MM/YYYY')}&time=${this.state.time ? this.state.time : moment(new Date(), 'HH:mm')}&${this.state.isArrivalTime ? 'timesel=arrival' : 'timesel=departure'}`}></Redirect>
+        }
 
         const { direction } = this.props
 
@@ -121,23 +132,23 @@ class DirectionForm extends Component {
                 <div className='time-form'>
                     <div className='item'>
                         <span className='title-form'>WHEN</span>
-                        <DatePicker defaultValue={moment(new Date(), 'DD/MM/YYYY')} format='DD/MM/YYYY' allowClear={false} onChange={this.handleSelectDate} defaultValue={this.state.date} />
+                        <DatePicker format='DD/MM/YYYY' allowClear={false} onChange={this.handleSelectDate} defaultValue={this.state.date} />
                     </div>
 
                     <div className='item'>
                         <span className='title-form'>AT</span>
-                        <TimePicker defaultValue={moment(new Date(), 'HH:mm')} format='HH:mm' minuteStep={10} allowClear={false} onChange={this.handleSelectTime} defaultValue={this.state.time} />
+                        <TimePicker format='HH:mm' minuteStep={10} allowClear={false} onChange={this.handleSelectTime} defaultValue={this.state.time} />
                     </div>
                 </div>
 
                 <div className='radio-line'>
-                    <Radio.Group defaultValue="departure" buttonStyle="solid">
-                        <Radio.Button value="departure">Departure</Radio.Button>
-                        <Radio.Button value="arrival">Arrival</Radio.Button>
+                    <Radio.Group buttonStyle='solid' defaultValue={this.state.isArrivalTime ? 'arrival' : 'departure'} onChange={this.handleSetTimesel}>
+                        <Radio.Button value='departure'>Departure</Radio.Button>
+                        <Radio.Button value='arrival'>Arrival</Radio.Button>
                     </Radio.Group>
                 </div>
 
-                <Button onClick={this.handleSubmit} loading={this.state.loading} type="primary">{this.state.loading ? 'Please wait' : 'Explore reliability!'}</Button>
+                <Button onClick={this.handleSubmit} loading={this.state.loading} type='primary'>{this.state.loading ? 'Please wait' : 'Explore reliability!'}</Button>
             </form>
         )
     }

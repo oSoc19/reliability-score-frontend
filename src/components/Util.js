@@ -13,3 +13,7 @@ export const getStringTime = str => {
 
     return `${landingZero(date.getUTCHours())}:${landingZero(date.getMinutes())}`
 }
+
+export const removeUTCDate = date => {
+    return new Date(null, null, null, date.getUTCHours(), date.getMinutes())
+}

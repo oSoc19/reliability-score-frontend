@@ -100,3 +100,35 @@ h1, h2, h3 {
 .wrong-field .ant-input {
     border:1px solid #ff4650;
 }
+
+.error {
+    text-align: center;
+}
+
+.error span {
+    display: block;
+    margin-top:10px;
+    color:#025aa0;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 1000px) {
+    .error img {
+        width:250px;
+    }
+
+    .error span {
+        font-size:25px;
+    }
+}
+
+@media only screen and (max-width: 999px) {
+    .error img {
+        width:60%;
+    }
+
+    .error span {
+        font-size:20px;
+    }
+}

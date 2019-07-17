@@ -6,14 +6,13 @@ import Cookies from 'universal-cookie'
 import Loading from '../Loading'
 import { Redirect } from 'react-router-dom'
 import PreviousDirection from './PreviousDirections'
+import propTypes from 'prop-types'
+import Error from '../Error'
 
 class PlannerPanel extends Component {
     state = {
         redirect: false,
-        showTutorial: false,
-
-        isLoading: true,
-        directions: []
+        showTutorial: false
     }
 
     handleSaveTutorialCookie = () => {
@@ -26,23 +25,8 @@ class PlannerPanel extends Component {
         })
     }
 
-    loadDirections = () => {
-        fetch('https://reliability-score.herokuapp.com/connections?from=Vilvoorde&to=Brugge&time=1005&date=160719&timesel=departure')
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    directions: data.connection,
-                    isLoading: false
-                })
-            })
-            .catch(error => console.log(error))
-    }
-
     componentWillMount = () => {
-        this.loadDirections()
-
-        const { direction } = this.props
-        if (!direction.from || !direction.to) this.setState({ redirect: true })
+        this.props.loadDirections()
 
         const cookie = new Cookies()
         if (!cookie.get('tutorial'))
@@ -51,19 +35,36 @@ class PlannerPanel extends Component {
             })
     }
 
+    componentWillUpdate = () => {
+        const { path } = this.props
+        if (!path.from || !path.to) this.setState({ redirect: true })
+    }
+
     render() {
         if (this.state.redirect)
             return <Redirect to='/'></Redirect>
+
+        if(this.props.isError)
+            return <Error />
 
         return (
             <div className='content global big-header-enabled'>
                 {this.state.showTutorial ? <DotsTutorial handleConfirm={this.handleSaveTutorialCookie} /> : null}
 
+                {this.props.isLoading ? <Loading /> : <Fragment><PreviousDirection /></Fragment>}
 
-                {this.state.isLoading ? <Loading /> : <Fragment><PreviousDirection /><DirectionCollection directions={this.state.directions} /></Fragment>}
+                <DirectionCollection directions={this.props.directions} />
             </div>
         )
     }
+}
+
+PlannerPanel.propTypes = {
+    path: propTypes.object.isRequired,
+    directions: propTypes.array.isRequired,
+    loadDirections: propTypes.func.isRequired,
+    isLoading: propTypes.bool.isRequired,
+    isError: propTypes.bool.isRequired
 }
 
 export default PlannerPanel

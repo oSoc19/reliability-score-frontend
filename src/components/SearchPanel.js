@@ -3,10 +3,6 @@ import './SearchPanel.css'
 import DirectionForm from './DirectionForm';
 
 class SearchPanel extends Component {
-    componentWillMount = () => {
-        document.title = 'Reliability Score - Prepare your delay'
-    }
-
     render() {
         return (
             <div className='content global search-panel'>

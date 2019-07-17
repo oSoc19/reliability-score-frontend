@@ -1,0 +1,57 @@
+.chart {
+    border: 1px solid red;
+    overflow: hidden;
+}
+
+.chart .y-axes {
+    background: yellow;
+    border-right: 1px solid blue;
+    float: left;
+    width: 50px;
+    padding-right: 10px;
+}
+
+.chart ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.chart .y-axes ul li {
+    margin-bottom: 10px;
+}
+
+.chart .y-axes ul li:last-of-type {
+    margin-bottom: 0;
+}
+
+.chart .x-axes {
+    width: calc(100% - 50px);
+    background: red;
+    margin-left: calc(100% - (100% - 49px));
+}
+
+.chart .content {
+    width: 100%;
+    overflow: hidden;
+}
+
+.chart .x-axes ul {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-top: 5px;
+    border-top: 1px solid blue;
+}
+
+.chart .x-axes ul li {
+    text-align: left;
+}
+
+.chart .content .content-data {
+    background: blue;
+    float: left;
+    width:calc(100% - 50px);
+    height:100%;
+}

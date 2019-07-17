@@ -57,7 +57,7 @@
 .direction-item .ant-timeline-item-head-grey {
     border-color: #bdc3c7!important;
     background: #bdc3c7;
-    margin-top: 30px!important;
+    margin-top: 25px!important;
 }
 
 .direction-item .ant-timeline {
@@ -213,7 +213,7 @@
 }
 
 .direction-collection .direction-item .details-stations .line.station-name {
-    margin-top: -15px;
+    margin-top: -30px;
 }
 
 .direction-collection .direction-item .details-stations .infos .departure {
@@ -230,7 +230,7 @@
 }
 
 .direction-collection .direction-item .details-stations .infos .line.arrival-time {
-    margin-top: -15px;
+    margin-top: -30px;
 }
 
 .direction-collection .direction-item .details-stations .detail:last-of-type {

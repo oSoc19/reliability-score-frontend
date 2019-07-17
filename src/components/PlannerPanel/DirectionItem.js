@@ -5,6 +5,7 @@ import DirectionDetail from './DirectionDetail'
 import StationItem from './StationItem'
 import DotsWidgetComponent from './DotsWidgetComponent'
 import propTypes from 'prop-types'
+import { getStationReliability } from '../Util'
 
 class DirectionItem extends Component {
     state = {
@@ -15,6 +16,19 @@ class DirectionItem extends Component {
         this.setState({
             showDetails: !this.state.showDetails
         })
+    }
+
+    getReliabilities = direction => {
+        let reliabilities = []
+
+        reliabilities.push(getStationReliability(direction.departure))
+
+        for(let station of direction.vias.via)
+            reliabilities.push(getStationReliability(station))
+
+        reliabilities.push(getStationReliability(direction.arrival))
+
+        return reliabilities
     }
 
     render() {
@@ -32,7 +46,7 @@ class DirectionItem extends Component {
                     </Timeline>
                 </div>
 
-                {!this.state.showDetails ? <div className='informations'><DotsWidgetComponent value={direction.reliabilityScore} title={'RELIABILITY'} /></div> : <DirectionDetail />}
+                {!this.state.showDetails ? <div className='informations'><DotsWidgetComponent value={direction.reliabilityScore} title={'RELIABILITY'} /></div> : <DirectionDetail reliabilities={this.getReliabilities(direction)} />}
             </div>
         )
     }

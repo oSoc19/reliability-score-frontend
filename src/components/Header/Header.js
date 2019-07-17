@@ -39,7 +39,7 @@ class Header extends Component {
                             </div>
                         </div>
 
-                        {this.props.withSubHeader ? <HeaderDetail handleShowPopup={() => this.handleShowPopup(true)} direction={this.props.direction} /> : null}
+                        {this.props.withSubHeader ? <HeaderDetail handleShowPopup={() => this.handleShowPopup(true)} path={this.props.path} /> : null}
                     </div>
                 </header >
             </Fragment>

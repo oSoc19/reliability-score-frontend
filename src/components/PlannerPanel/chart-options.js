@@ -1,5 +1,5 @@
-import Chartkick from 'react-chartkick';
+import Chartkick from 'react-chartkick'
 
 Chartkick.options = {
-  colors: ["#ffa500", "#575759"]
+  colors: ['#0984e3']
 }

@@ -8,10 +8,26 @@ export const getStringDate = str => {
     return `${landingZero(date.getDate())}/${landingZero(date.getMonth())}/${landingZero(date.getFullYear())}`
 }
 
+export const getIntDate = str => {
+    const date = new Date(str)
+    return `${landingZero(date.getDate())}${landingZero(date.getMonth() + 1)}${date.getFullYear().toString().substr(2,2)}`
+}
+
+export const getIntTime = str => {
+    const date = new Date(str)
+    return `${landingZero(date.getUTCHours())}${landingZero(date.getMinutes())}`
+}
+
 export const getStringTime = str => {
     let date = new Date(str)
 
     return `${landingZero(date.getUTCHours())}:${landingZero(date.getMinutes())}`
+}
+
+export const getStringUTCTime = str => {
+    let date = new Date(str)
+
+    return `${landingZero(date.getHours())}:${landingZero(date.getMinutes())}`
 }
 
 export const removeUTCDate = date => {
@@ -25,11 +41,17 @@ export const convertTimestampToTime = timestamp => {
 }
 
 export const getTrainType = id => {
-    var filterRegex = /^(S[0-9])|(ICE)|(THA)|(IC)|(EUR)|(TGV)|(P)|(L)/
+    var filterRegex = new RegExp('(S[0-9])|(ICE)|(THA)|(IC)|(EUR)|(TGV)|(P)|(L)')
     let matched = filterRegex.exec(id)
 
     if(!matched)
         return 'Unknown'
 
     return matched[0]
+}
+
+export const getStationReliability = station => {
+    const reliability = [station.station, station.reliability]
+
+    return reliability
 }

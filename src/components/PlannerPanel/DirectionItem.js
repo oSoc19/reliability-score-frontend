@@ -9,7 +9,7 @@ import { getStationReliability } from '../Util'
 
 class DirectionItem extends Component {
     state = {
-        showDetails: true
+        showDetails: false
     }
 
     toggleShowDetail = () => {

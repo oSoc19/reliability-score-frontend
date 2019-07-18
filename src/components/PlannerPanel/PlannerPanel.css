@@ -45,19 +45,28 @@
 }
 
 .direction-item .ant-timeline-item-head-green {
-    border-color: #93c958;
-    background: #93c958;
+    border-color: #00da67;
+    background: #00da67;
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
 .direction-item .ant-timeline-item-head-red {
-    border-color: #ff4750;
-    background: #ff4750;
+    border-color: #ff2b50;
+    background: #ff2b50;
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
 .direction-item .ant-timeline-item-head-grey {
-    border-color: #bdc3c7!important;
-    background: #bdc3c7;
+    border-color: #dfe8f0!important;
+    background: #dfe8f0;
     margin-top: 25px!important;
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
 .direction-item .ant-timeline {
@@ -66,6 +75,9 @@
 
 .direction-collection .ant-timeline-item-tail {
     border-left-style: dashed;
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
 .direction-collection .direction-item .infos {
@@ -143,7 +155,6 @@
 }
 
 .global-dots {
-    overflow: hidden;
     margin-left: calc((100% - 45px) / 2);
 }
 
@@ -156,7 +167,7 @@
 }
 
 .global-dots .dot.green {
-    background: #83cc42;
+    background: #00da67;
 }
 
 .global-dots .dot.grey {
@@ -164,11 +175,11 @@
 }
 
 .global-dots .dot.red {
-    background: #ff4750;
+    background: #ff2b50;
 }
 
 .global-dots .dot.orange {
-    background: #ff9600;
+    background: #ffa100;
 }
 
 .global-dots .dot:last-of-type {
@@ -177,7 +188,7 @@
 
 .dots-item span {
     display: block;
-    margin-top: 5px;
+    margin-top: 20px;
     font-weight: 400;
     color: #484848;
     font-size: 12px;
@@ -315,4 +326,21 @@
     .content .direction-collection .direction-item .informations {
         display: none;
     }
+}
+
+.global-delay-details hr {
+    border-width: 0 0 1px 0;
+    border-color: #e8e8e8;
+    border-style: dashed;
+    margin-bottom: 10px;
+}
+
+.global-delay-details .notice {
+    text-align: left;
+    font-size: 15px;
+    border-radius: 5px;
+    color: blue;
+    margin-bottom: 10px;
+    color: #FF4757;
+    font-weight: 500;
 }

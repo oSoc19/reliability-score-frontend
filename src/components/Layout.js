@@ -23,8 +23,6 @@ class Layout extends Component {
 
         const { from, to, date, time, timesel } = this.state.pathData
 
-        console.log(from)
-
         fetch(`https://reliability-score.herokuapp.com/connections?from=Vilvoorde&to=Brugge&time=1005&date=160719&timesel=departure`)
             .then(response => response.json())
             .then(data => {

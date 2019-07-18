@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
 import { Bar } from 'react-chartjs-2'
+import 'chart.js'
 
 class DirectionChart extends Component {
     render() {
         const data = {
             datasets: [{
-                data: [0.2, 0.4, .78, 0.05],
-                backgroundColor: ["#FF6384",
-                    "#4BC0C0",
-                    "#FFCE56",
-                    "#36A2EB"],
-                borderWidth: 0
+                data: [25, 30, 10, 60, 70, 50, 20, 10, 5, 30, 25, 20, 10, 15, 10, 15, 15],
+                backgroundColor: "#1936f5",
+                borderColor: "grey",
+                borderWidth: "10",
             }],
-            labels: ['1', '2', '3', '4']
+            labels: ['on time', 'max 1', 'max 2', 'max 3', 'max 4', 'max 5', 'max 6', 'max 7', 'max 8', 'max 9', 'max 10', 'max 11', 'max 12', 'max 13', 'max 14', 'max 15', 'more than 15' ]
         }
 
         const options = {
@@ -30,13 +29,13 @@ class DirectionChart extends Component {
                     barPercentage: 1,
                     categoryPercentage: 1,
                     ticks: {
+                        min: 0,
+                        max: 100,
+                        stepSize: 25,
                         beginAtZero: true
                     }
                 }]
             },
-            tooltips: {
-
-            }
         }
 
         return (
@@ -44,7 +43,7 @@ class DirectionChart extends Component {
                 <Bar
                     data={data}
                     width={100}
-                    height={200}
+                    height={50}
                     options={options}
                 />
             </div>

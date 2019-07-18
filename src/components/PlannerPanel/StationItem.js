@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import propTypes from 'prop-types'
 import { convertTimestampToTime, getTrainType } from '../Util'
+import DirectionChart from './DirectionChart.js'
 
 class StationItem extends Component {
     render() {
@@ -18,7 +19,8 @@ class StationItem extends Component {
                         {station && !this.props.isLast ? <span><b>{getTrainType(station.vehicle)}</b> Train to <b>{station.direction.name}</b></span> : null}
                     </div>
 
-                    {this.props.showPlatform ? <span className='platform'>Platform <b>{station.platforminfo.name}</b></span> : null}
+                    <DirectionChart />
+                    {this.props.showPlatform ? <span className='platform'> Platform <b>{station.platforminfo.name}</b></span> : null}
                 </div>
             </Timeline.Item>
         )

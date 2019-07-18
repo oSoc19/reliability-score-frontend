@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react'
 import propTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 import './Header.css'
-import './Animations.css'
-import Logo from '../images/logo.png'
+import '../Animations.css'
+import Logo from '../../images/logo.png'
 import HeaderDetail from './HeaderDetail'
-import DirectionForm from './DirectionForm'
+import DirectionForm from '../DirectionForm'
 import HeaderBackButton from './HeaderBackButton';
 
 class Header extends Component {
@@ -22,7 +22,7 @@ class Header extends Component {
     render() {
         return (
             <Fragment>
-                {this.state.isPopup ? <div className='popup-direction-form'><Header withBackButton={true} title='Update Search' withSubHeader={false} handleGoBack={() => this.handleShowPopup(false)} /><div className='content global search-panel'><DirectionForm /></div></div> : null}
+                {this.state.isPopup ? <div className='popup-direction-form'><Header withBackButton={true} title='Update Search' withSubHeader={false} handleGoBack={() => this.handleShowPopup(false)} /><div className='content global search-panel'><DirectionForm direction={this.props.direction} handleGoBack={() => this.handleShowPopup(false)} /></div></div> : null}
                 
                 <header className={`shadow ${this.props.withSubHeader ? 'big-header' : ''}`}>
                     <div className='content'>
@@ -39,7 +39,7 @@ class Header extends Component {
                             </div>
                         </div>
 
-                        {this.props.withSubHeader ? <HeaderDetail handleShowPopup={() => this.handleShowPopup(true)} /> : null}
+                        {this.props.withSubHeader ? <HeaderDetail handleShowPopup={() => this.handleShowPopup(true)} path={this.props.path} /> : null}
                     </div>
                 </header >
             </Fragment>

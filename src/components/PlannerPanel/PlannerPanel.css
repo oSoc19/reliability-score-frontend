@@ -8,6 +8,7 @@
     color: #025aa0;
     font-size: 16px;
     cursor: pointer;
+    margin: auto auto 10px auto;
 }
 
 .content .btn-prev-next-group .btn img {
@@ -17,16 +18,12 @@
 }
 
 .content .btn-prev-next-group .btn.prev img {
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
     margin-right: 5px;
-}
-
-.content .btn-prev-next-group .btn.next img {
-    margin-left: 5px;
 }
 
 .content .title-day h2 {
@@ -48,19 +45,28 @@
 }
 
 .direction-item .ant-timeline-item-head-green {
-    border-color: #93c958;
-    background: #93c958;
+    border-color: #00da67;
+    background: #00da67;
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
 .direction-item .ant-timeline-item-head-red {
-    border-color: #ff4750;
-    background: #ff4750;
+    border-color: #ff2b50;
+    background: #ff2b50;
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
 .direction-item .ant-timeline-item-head-grey {
-    border-color: #bdc3c7!important;
-    background: #bdc3c7;
-    margin-top: 20px!important;
+    border-color: #dfe8f0!important;
+    background: #dfe8f0;
+    margin-top: 25px!important;
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
 .direction-item .ant-timeline {
@@ -69,6 +75,9 @@
 
 .direction-collection .ant-timeline-item-tail {
     border-left-style: dashed;
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
 .direction-collection .direction-item .infos {
@@ -124,6 +133,7 @@
 
 .direction-item.white-box {
     padding-bottom: 3px;
+    cursor: pointer;
 }
 
 .direction-collection .direction-item .timeline {
@@ -145,7 +155,6 @@
 }
 
 .global-dots {
-    overflow: hidden;
     margin-left: calc((100% - 45px) / 2);
 }
 
@@ -158,7 +167,7 @@
 }
 
 .global-dots .dot.green {
-    background: #83cc42;
+    background: #00da67;
 }
 
 .global-dots .dot.grey {
@@ -166,11 +175,11 @@
 }
 
 .global-dots .dot.red {
-    background: #ff4750;
+    background: #ff2b50;
 }
 
 .global-dots .dot.orange {
-    background: #ff9600;
+    background: #ffa100;
 }
 
 .global-dots .dot:last-of-type {
@@ -179,7 +188,7 @@
 
 .dots-item span {
     display: block;
-    margin-top: 5px;
+    margin-top: 20px;
     font-weight: 400;
     color: #484848;
     font-size: 12px;
@@ -210,18 +219,16 @@
 
 .direction-collection .direction-item .details-stations .infos .line {
     overflow: hidden;
-    margin: 0;
+    margin: 5px 0;
     padding: 0;
 }
 
 .direction-collection .direction-item .details-stations .line.station-name {
-    margin-top: -15px;
+    margin-top: -30px;
 }
 
 .direction-collection .direction-item .details-stations .infos .departure {
     margin-left: 75px;
-    display: flex;
-    justify-content: space-between;
     width: calc(100% - 75px);
 }
 
@@ -234,7 +241,7 @@
 }
 
 .direction-collection .direction-item .details-stations .infos .line.arrival-time {
-    margin-top: -15px;
+    margin-top: -30px;
 }
 
 .direction-collection .direction-item .details-stations .detail:last-of-type {
@@ -319,4 +326,21 @@
     .content .direction-collection .direction-item .informations {
         display: none;
     }
+}
+
+.global-delay-details hr {
+    border-width: 0 0 1px 0;
+    border-color: #e8e8e8;
+    border-style: dashed;
+    margin-bottom: 10px;
+}
+
+.global-delay-details .notice {
+    text-align: left;
+    font-size: 15px;
+    border-radius: 5px;
+    color: blue;
+    margin-bottom: 10px;
+    color: #FF4757;
+    font-weight: 500;
 }

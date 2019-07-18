@@ -21,9 +21,9 @@ class DotsWidgetComponent extends Component {
         return (
             <div className='dots-item'>
                 <div className='global-dots'>
-                    <div className={`dot ${this.props.value >= 1 ? dotsColor : 'grey'}`}></div>
-                    <div className={`dot ${this.props.value >= 2 ? dotsColor : 'grey'}`}></div>
-                    <div className={`dot ${this.props.value >= 3 ? dotsColor : 'grey'}`}></div>
+                    <div className={`dot shadow ${this.props.value >= 1 ? dotsColor : 'grey'}`}></div>
+                    <div className={`dot shadow ${this.props.value >= 2 ? dotsColor : 'grey'}`}></div>
+                    <div className={`dot shadow ${this.props.value >= 3 ? dotsColor : 'grey'}`}></div>
                 </div>
                 <span>{this.props.title}</span>
             </div >

@@ -46,7 +46,7 @@ class DirectionItem extends Component {
                     </Timeline>
                 </div>
 
-                {!this.state.showDetails ? <div className='informations'><DotsWidgetComponent value={direction.reliabilityScore} title={'RELIABILITY'} /></div> : <DirectionDetail reliabilities={this.getReliabilities(direction)} />}
+                {!this.state.showDetails ? <div className='informations'><DotsWidgetComponent value={2} title={'RELIABILITY'} /></div> : <DirectionDetail reliabilities={this.getReliabilities(direction)} />}
             </div>
         )
     }

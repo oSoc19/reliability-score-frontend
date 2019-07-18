@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import propTypes from 'prop-types'
 import { convertTimestampToTime, getTrainType } from '../Util'
+import DirectionChart from './DirectionChart.js'
+import DotsWidget from './DotsWidget'
 
 class StationItem extends Component {
     render() {
@@ -9,16 +11,25 @@ class StationItem extends Component {
 
         return (
             <Timeline.Item color={this.props.color} className={`${this.props.isLast ? 'ant-timeline-item-last' : ''}`}>
-                <div className='infos'>
-                    <h3>{convertTimestampToTime(station.time)}</h3>
-
-                    <div className='departure'>
-                        <h2>{station.stationinfo.name}</h2>
-
-                        {station && !this.props.isLast ? <span><b>{getTrainType(station.vehicle)}</b> Train to <b>{station.direction.name}</b></span> : null}
+                <div className='station-informations'>
+                    <div className='time'>
+                        10:30
                     </div>
 
-                    {this.props.showPlatform ? <span className='platform'>Platform <b>{station.platforminfo.name}</b></span> : null}
+                    <div className='direction'>
+                        <h3>Station</h3>
+                        <span className='to'><b>IC</b> Train to <b>Station</b></span>
+                    </div>
+
+                    <div className='global-data'>
+                        <div className='charts-container'>
+                            <DirectionChart />
+                        </div>
+
+                        <div className='dots-container'>
+                            <DotsWidget title='RELIABILITY' value={2}/>
+                        </div>
+                    </div>
                 </div>
             </Timeline.Item>
         )

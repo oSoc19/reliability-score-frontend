@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
 
-class DotsWidgetComponent extends Component {
+class DotsWidget extends Component {
     render() {
         let dotsColor = 'grey'
         switch (this.props.value) {
@@ -31,9 +31,9 @@ class DotsWidgetComponent extends Component {
     }
 }
 
-DotsWidgetComponent.propTypes = {
+DotsWidget.propTypes = {
     value: propTypes.number.isRequired,
     title: propTypes.string.isRequired
 }
 
-export default DotsWidgetComponent
+export default DotsWidget

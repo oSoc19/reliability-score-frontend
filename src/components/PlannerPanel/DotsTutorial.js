@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DotsWidgetComponent from './DotsWidgetComponent'
+import DotsWidget from './DotsWidget'
 import { Button } from 'antd'
 import propTypes from 'prop-types'
 
@@ -11,9 +11,9 @@ class DotsTutorial extends Component {
                 <h2>HOW TO WORKS</h2>
 
                 <div className='dots'>
-                    <DotsWidgetComponent value={1} title={'Bad reliability'} />
-                    <DotsWidgetComponent value={2} title={'Medium reliability'} />
-                    <DotsWidgetComponent value={3} title={'Wrong reliability'} />
+                    <DotsWidget value={1} title={'Bad reliability'} />
+                    <DotsWidget value={2} title={'Medium reliability'} />
+                    <DotsWidget value={3} title={'Wrong reliability'} />
                 </div>
 
                 <Button type="primary" onClick={this.props.handleConfirm}>Understood!</Button>

@@ -9,7 +9,7 @@
     "url": "https://github.com/osoc19/reliability-score-frontend/issues"
   },
   "dependencies": {
-    "antd": "^3.20.0",
+    "antd": "^3.20.3",
     "chart.js": "^2.8.0",
     "query-string": "^6.8.1",
     "react": "^16.8.6",

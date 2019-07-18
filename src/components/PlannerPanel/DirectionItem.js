@@ -3,13 +3,13 @@ import { Timeline } from 'antd'
 import DirectionStationDetail from './DirectionStationDetail'
 import DirectionDetail from './DirectionDetail'
 import StationItem from './StationItem'
-import DotsWidgetComponent from './DotsWidgetComponent'
+import DotsWidget from './DotsWidget'
 import propTypes from 'prop-types'
 import { getStationReliability } from '../Util'
 
 class DirectionItem extends Component {
     state = {
-        showDetails: false
+        showDetails: true
     }
 
     toggleShowDetail = () => {
@@ -35,18 +35,18 @@ class DirectionItem extends Component {
         const { direction } = this.props
 
         return (
-            <div className='direction-item white-box shadow' onClick={this.toggleShowDetail}>
+            <div className='direction-item white-box shadow'>
                 <div className={`timeline ${this.state.showDetails ? 'wide' : ''}`}>
                     <Timeline>
                         <StationItem color={'green'} station={this.props.direction.departure} showPlatform={this.state.showDetails} />
 
-                        {this.state.showDetails ? <DirectionStationDetail viaStations={direction.vias.via} /> : null}
+                        <DirectionStationDetail viaStations={direction.vias.via} />
 
                         <StationItem color={'red'} station={this.props.direction.arrival} showPlatform={this.state.showDetails} isLast={true} />
                     </Timeline>
                 </div>
 
-                {!this.state.showDetails ? <div className='informations'><DotsWidgetComponent value={2} title={'RELIABILITY'} /></div> : <DirectionDetail reliabilities={this.getReliabilities(direction)} />}
+                {!this.state.showDetails ? <div className='informations'><DotsWidget value={2} title={'RELIABILITY'} /></div> : <DirectionDetail reliabilities={this.getReliabilities(direction)} />}
             </div>
         )
     }

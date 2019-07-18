@@ -7,7 +7,7 @@ class PreviousDirection extends Component {
             <div className='btn-prev-next-group'>
                 <div className='btn prev'>
                     <img src={ArrowIcon} alt='previous' />
-                    Previous
+                    Earlier
                 </div>
             </div>
         )

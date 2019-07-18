@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import propTypes from 'prop-types'
 import { convertTimestampToTime, getTrainType } from '../Util'
+import DirectionChart from './DirectionChart'
+import DotsWidget from './DotsWidget'
 
 class ViaStationItem extends Component {
     render() {
@@ -10,22 +12,30 @@ class ViaStationItem extends Component {
         return (
             <div className='detail'>
                 <Timeline.Item color='grey'>
-                    <div className='infos'>
-                        <div className='line'>
-                            <h3>{convertTimestampToTime(station.arrival.time)}</h3>
-                            <span className='platform'>Platform <b>{station.arrival.platforminfo.name}</b></span>
+                    <div className='station-informations'>
+                        <div className='time'>
+                            10:30
                         </div>
 
-                        <div className='line station-name'>
-                            <div className='departure'>
-                                <h2>{station.stationinfo.name}</h2>
-                                <span><b>{getTrainType(station.vehicle)}</b> Train to <b>{station.departure.direction.name}</b></span>
+                        <div className='data-infos'>
+                            <div className='direction'>
+                                <h3>Station</h3>
+                                <span className='to'><b>IC</b> Train to <b>Station</b></span>
+                            </div>
+
+                            <div className='global-data'>
+                                <div className='charts-container'>
+                                    <DirectionChart />
+                                </div>
+
+                                <div className='dots-container'>
+                                    <DotsWidget title='RELIABILITY' value={2} />
+                                </div>
                             </div>
                         </div>
 
-                        <div className='line arrival-time'>
-                            <h3>{convertTimestampToTime(station.departure.time)}</h3>
-                            <span className='platform'>Platform <b>{station.departure.platforminfo.name}</b></span>
+                        <div className='time'>
+                            10:30
                         </div>
                     </div>
                 </Timeline.Item>

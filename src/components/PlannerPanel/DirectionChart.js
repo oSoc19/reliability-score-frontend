@@ -12,7 +12,7 @@ class DirectionChart extends Component {
                 borderColor: "#fff",
                 borderWidth: "1",
             }],
-            labels: ['0', '', '2', '', '', '5', '', '', '', '', '10', '', '', '', '', '', '> 15']
+            labels: ['0', '', '', '', '', '5', '', '', '', '', '10', '', '', '', '', '', '15+']
         }
 
         const options = {
@@ -47,7 +47,7 @@ class DirectionChart extends Component {
                         beginAtZero: true,
                         min: 0,
                         max: 100,
-                        stepSize: 25,
+                        stepSize: 50,
                         beginAtZero: true,
                         fontSize: 8,
                         fontFamily: "Work Sans",
@@ -64,7 +64,7 @@ class DirectionChart extends Component {
                 <Bar
                     data={data}
                     width={100}
-                    height={200}
+                    height={100}
 
                     options={options}
                 />

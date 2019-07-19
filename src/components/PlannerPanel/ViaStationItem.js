@@ -34,7 +34,7 @@ class ViaStationItem extends Component {
                             </div>
                         </div>
 
-                        <div className='time'>
+                        <div className='time departure'>
                             10:30
                         </div>
                     </div>

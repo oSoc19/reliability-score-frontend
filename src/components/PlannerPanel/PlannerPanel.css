@@ -215,6 +215,18 @@
     border-left: 1px solid #e2e8ec;
 }
 
+@media only screen and (max-width: 600px) {
+    .station-informations .direction {
+        width: calc(100% - 100px);
+    }
+    .station-informations .global-data {
+        padding-left: 0;
+        border-left: 0;
+        width:calc(100% - 80px);
+        margin-top:10px;
+    }
+}
+
 .station-informations .global-data .charts-container {
     float: left;
     padding: 10px 0;

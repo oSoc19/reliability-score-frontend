@@ -51,7 +51,7 @@ class PlannerPanel extends Component {
             <div className='content global big-header-enabled'>
                 {this.state.showTutorial ? <DotsTutorial handleConfirm={this.handleSaveTutorialCookie} /> : null}
 
-                {this.props.isLoading ? <Loading /> : <Fragment><PreviousDirection /></Fragment>}
+                {this.props.isLoading ? <Loading /> : <Fragment><PreviousDirection loadPreviousDirections={this.props.loadPreviousDirections} /></Fragment>}
 
                 <DirectionCollection directions={this.props.directions} />
             </div>
@@ -64,7 +64,8 @@ PlannerPanel.propTypes = {
     directions: propTypes.array.isRequired,
     loadDirections: propTypes.func.isRequired,
     isLoading: propTypes.bool.isRequired,
-    isError: propTypes.bool.isRequired
+    isError: propTypes.bool.isRequired,
+    loadPreviousDirections: propTypes.func.isRequired
 }
 
 export default PlannerPanel

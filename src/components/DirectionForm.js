@@ -93,6 +93,10 @@ class DirectionForm extends Component {
                 this.props.handleGoBack()
             }
 
+            if(this.props.loadDirections) {
+                this.props.loadDirections();
+            }
+
             return <Redirect to={`/planner/?from=${this.state.departureStation}&to=${this.state.arrivalStation}&date=${this.state.date ? this.state.date : moment(new Date(), 'DD/MM/YYYY')}&time=${this.state.time ? this.state.time : moment(new Date(), 'HH:mm')}&${this.state.isArrivalTime ? 'timesel=arrival' : 'timesel=departure'}`}></Redirect>
         }
 

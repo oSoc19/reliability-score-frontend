@@ -3,8 +3,6 @@ import { Bar } from 'react-chartjs-2'
 
 class DirectionChart extends Component {
     render() {
-        console.log(this.props.reliabilities)
-
         const data = {
             datasets: [{
 

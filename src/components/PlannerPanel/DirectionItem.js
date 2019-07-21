@@ -40,7 +40,7 @@ class DirectionItem extends Component {
                     <Timeline>
                         <StationItem color={'green'} station={direction.departure} showDetails={this.state.showDetails} />
 
-                        {this.state.showDetails ? <DirectionStationDetail viaStations={direction.vias.via} /> : null}
+                        {this.state.showDetails && direction.vias ? <DirectionStationDetail viaStations={direction.vias.via} /> : null}
 
                         <StationItem color={'red'} station={direction.arrival} isLast={true} showDetails={this.state.showDetails} />
                     </Timeline>

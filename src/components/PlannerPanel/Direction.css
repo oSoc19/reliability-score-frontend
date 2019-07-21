@@ -1,10 +1,74 @@
-.ant-timeline-item-head {
-    margin-top:5px;
+.ant-timeline-item-head, .ant-timeline-item-tail {
+    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
+    box-shadow: 0 3px 10px 0 #0000001f;
+    border-radius: 5px;
 }
 
+.ant-timeline-item-head {
+    margin-top: 5px;
+}
 
+.ant-timeline-item-head-red {
+    background: #ff4757;
+    border-color: #ff4757;
+}
 
+.ant-timeline-item-head-green {
+    background: #2ed573;
+    border-color: #2ed573;
+}
 
+.ant-timeline-item-head-grey {
+    background: #a4b0be;
+    border-color: #a4b0be!important;
+}
+
+.dots-item {
+    overflow: hidden;
+    padding-top:30px;
+    margin-left:20px;
+}
+
+.dots-container {
+    margin-left: calc((100% - 45px) / 2);
+}
+
+.dots-container .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    margin-right: 5px;
+    float: left;
+}
+
+.dots-container .dot.green {
+    background: #00da67;
+}
+
+.dots-container .dot.grey {
+    background: #dfe8f0;
+}
+
+.dots-container .dot.red {
+    background: #ff2b50;
+}
+
+.dots-container .dot.orange {
+    background: #ffa100;
+}
+
+.dots-container .dot:last-of-type {
+    margin-right: 0;
+}
+
+.dots-item span {
+    display: block;
+    margin-top: 20px;
+    font-weight: 400;
+    color: #484848;
+    font-size: 12px;
+    text-align: center;
+}
 
 .direction-collection .direction-item {
     margin-bottom: 20px;
@@ -12,61 +76,125 @@
 }
 
 .direction-collection .direction-item .ant-timeline-item {
-    margin-left:60px;
+    margin-left: 60px;
 }
 
 .direction-collection .direction-item .global-station-item {
-    margin-left:-80px;
+    margin-left: -80px;
 }
 
 .direction-collection .direction-item .global-station-item .time {
     font-weight: 600;
     color: #484848;
-    font-size:18px;
+    font-size: 18px;
 }
 
 .direction-collection .direction-item .global-station-item .informations {
-    margin-left:80px;
-    margin-top:-28px;
+    margin-left: 80px;
+    margin-top: -28px;
 }
 
 .direction-collection .direction-item .global-station-item .informations h3 {
-    margin:0;
-    padding:0;
-    color:#484848;
+    margin: 0;
+    padding: 0;
+    color: #484848;
     font-weight: 300;
-    font-size:18px;
+    font-size: 18px;
 }
 
 .direction-collection .direction-item .global-station-item .informations .direction {
-    font-size:15px;
+    font-size: 15px;
     font-weight: 300;
-    color:#484848;
-    margin-top:5px;
+    color: #484848;
+    margin-top: 5px;
     font-style: italic;
 }
 
 .direction-collection .direction-item .global-dots {
-    border-top:1px dashed #e2e8ec;
-    padding-top:10px;
-    margin-top:-10px;
+    border-top: 1px dashed #e2e8ec;
+    padding-top: 10px;
+    margin-top: -10px;
 }
 
 .direction-collection .direction-item .timeline {
-    width:calc(100% - 100px);
+    width: calc(100% - 100px);
 }
 
 @media only screen and (min-width: 450px) {
     .timeline {
-        width:100%;
-        float:left;
+        width: 100%;
+        float: left;
+    }
+    .direction-collection .direction-item .global-dots {
+        float: right;
+        width: 90px;
+        padding-left: 10px;
+        border-top: 0;
+        border-left: 1px solid #e2e8ec;
+    }
+}
+
+
+/* EXTENDED */
+
+.direction-collection .direction-item .timeline.extended {
+    width:100%;
+}
+
+.direction-collection .direction-item .timeline.extended .global-station-item .informations {
+    overflow: hidden;
+}
+
+.direction-collection .direction-item .timeline.extended .global-station-item .informations .station {
+    float:left;
+}
+
+.direction-collection .direction-item .timeline.extended .global-station-item .informations .data-container {
+    float:right;
+    border:1px solid blue;
+    overflow: hidden;
+}
+
+.direction-collection .direction-item .timeline.extended .global-station-item .informations .data-container .graph-container, .direction-collection .direction-item .timeline.extended .global-station-item .informations .data-container .dots-item {
+    float:left;
+}
+
+.detail .global-station-item .time:last-of-type {
+    margin-top:-85px;
+    margin-bottom:85px;
+}
+
+.detail .informations {
+    padding-top:18px;
+} 
+
+.detail .ant-timeline-item-head {
+    margin-top:20px;
+}
+
+@media only screen and (max-width: 520px) {
+    .station, .data-container {
+        float: none!important;
     }
 
-    .direction-collection .direction-item .global-dots {
-        float:right;
-        width:90px;
-        padding-left:10px;
-        border-top:0;
-        border-left:1px solid #e2e8ec;
+    .data-container {
+        margin-top:10px;
+    }
+
+    .direction-collection .direction-item .timeline.extended .global-station-item .informations .data-container .dots-item {
+        float:right!important;
+    }
+
+    .detail .global-station-item .time:last-of-type {
+        margin-top:-150px;
+        margin-bottom:150px;
+    }
+    
+    .detail .informations {
+        padding-top:18px;
+    }
+    
+    .detail .ant-timeline-item-head {
+        margin-top:20px;
     }
 }

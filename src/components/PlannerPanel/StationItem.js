@@ -13,15 +13,17 @@ class StationItem extends Component {
             <Timeline.Item color={this.props.color} className={`${this.props.isLast ? 'ant-timeline-item-last' : ''}`}>
                 <div className='global-station-item'>
                     <div className='time'>
-                        10:30
+                        {convertTimestampToTime(station.time)}
                     </div>
 
                     <div className='informations'>
-                        <h3>Vilvoorde</h3>
+                        <div className='station'>
+                            <h3>{station.stationinfo.name}</h3>
 
-                        <div className='direction'>
-                            <b>IC</b> train to <b>Charleroi-Sud</b>
+                            {!this.props.isLast ? <div className='direction'><b>{getTrainType(station.vehicle)}</b> train to <b>{station.direction.name}</b></div> : null}
                         </div>
+
+                        {this.props.showDetails ? <div className='data-container'><DirectionChart reliabilities={station.reliability} /><DotsWidget title='RELIABILITY' value={2} /></div> : null}
                     </div>
                 </div>
             </Timeline.Item>
@@ -31,7 +33,8 @@ class StationItem extends Component {
 
 StationItem.propTypes = {
     color: propTypes.string.isRequired,
-    station: propTypes.object.isRequired
+    station: propTypes.object.isRequired,
+    showDetails: propTypes.bool.isRequired
 }
 
 export default StationItem

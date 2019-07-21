@@ -4,15 +4,6 @@ import propTypes from 'prop-types'
 import NoMoreResult from '../NoMoreResult';
 
 class DirectionCollection extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isReady: false,
-            predictions: []
-        };
-    }
-
     render() {
         const { directions } = this.props
 

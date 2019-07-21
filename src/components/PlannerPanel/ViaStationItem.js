@@ -12,30 +12,28 @@ class ViaStationItem extends Component {
         return (
             <div className='detail'>
                 <Timeline.Item color='grey'>
-                    <div className='station-informations'>
+                    <div className='global-station-item'>
                         <div className='time'>
-                            10:30
+                            {convertTimestampToTime(station.arrival.time)}
                         </div>
 
-                        <div className='data-infos'>
-                            <div className='direction'>
-                                <h3>Station</h3>
-                                <span className='to'><b>IC</b> Train to <b>Station</b></span>
+                        <div className='informations'>
+                            <div className='station'>
+                                <h3>{station.station}</h3>
+
+                                <div className='direction'>
+                                    <b>{getTrainType(station.vehicle)}</b> train to <b>{station.departure.direction.name}</b>
+                                </div>
                             </div>
 
-                            <div className='global-data'>
-                                <div className='charts-container'>
-                                    <DirectionChart />
-                                </div>
-
-                                <div className='dots-container'>
-                                    <DotsWidget title='RELIABILITY' value={2} />
-                                </div>
+                            <div className='data-container'>
+                                <DirectionChart />
+                                <DotsWidget title='RELIABILITY' value={2} />
                             </div>
                         </div>
 
-                        <div className='time departure'>
-                            10:30
+                        <div className='time'>
+                            {convertTimestampToTime(station.departure.time)}
                         </div>
                     </div>
                 </Timeline.Item>

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import propTypes from 'prop-types'
 import { Bar } from 'react-chartjs-2'
 
 class DirectionChart extends Component {
     render() {
+        console.log(this.props.reliabilities)
+
         const data = {
             datasets: [{
 
@@ -44,7 +45,6 @@ class DirectionChart extends Component {
                         color: "rgba(0, 0, 0, 0)",
                     },
                     ticks: {
-                        beginAtZero: true,
                         min: 0,
                         max: 100,
                         stepSize: 50,
@@ -71,10 +71,6 @@ class DirectionChart extends Component {
             </div>
         )
     }
-}
-
-DirectionChart.propTypes = {
-    reliabilities: propTypes.array.isRequired
 }
 
 export default DirectionChart

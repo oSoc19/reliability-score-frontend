@@ -6,10 +6,11 @@ import StationItem from './StationItem'
 import DotsWidget from './DotsWidget'
 import propTypes from 'prop-types'
 import { getStationReliability } from '../Util'
+import './Direction.css'
 
 class DirectionItem extends Component {
     state = {
-        showDetails: true
+        showDetails: false
     }
 
     toggleShowDetail = () => {
@@ -36,17 +37,17 @@ class DirectionItem extends Component {
 
         return (
             <div className='direction-item white-box shadow'>
-                <div className={`timeline ${this.state.showDetails ? 'wide' : ''}`}>
+                <div className='timeline'>
                     <Timeline>
                         <StationItem color={'green'} station={this.props.direction.departure} showPlatform={this.state.showDetails} />
-
-                        <DirectionStationDetail viaStations={direction.vias.via} />
 
                         <StationItem color={'red'} station={this.props.direction.arrival} showPlatform={this.state.showDetails} isLast={true} />
                     </Timeline>
                 </div>
 
-                {!this.state.showDetails ? <div className='informations'><DotsWidget value={2} title={'RELIABILITY'} /></div> : <DirectionDetail reliabilities={this.getReliabilities(direction)} />}
+                <div className='global-dots'>
+                    ICI
+                </div>
             </div>
         )
     }

@@ -11,23 +11,16 @@ class StationItem extends Component {
 
         return (
             <Timeline.Item color={this.props.color} className={`${this.props.isLast ? 'ant-timeline-item-last' : ''}`}>
-                <div className='station-informations'>
+                <div className='global-station-item'>
                     <div className='time'>
                         10:30
                     </div>
 
-                    <div className='direction'>
-                        <h3>Station</h3>
-                        <span className='to'><b>IC</b> Train to <b>Station</b></span>
-                    </div>
+                    <div className='informations'>
+                        <h3>Vilvoorde</h3>
 
-                    <div className='global-data'>
-                        <div className='charts-container'>
-                            <DirectionChart />
-                        </div>
-
-                        <div className='dots-container'>
-                            <DotsWidget title='RELIABILITY' value={2}/>
+                        <div className='direction'>
+                            <b>IC</b> train to <b>Charleroi-Sud</b>
                         </div>
                     </div>
                 </div>

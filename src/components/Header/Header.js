@@ -22,7 +22,7 @@ class Header extends Component {
     render() {
         return (
             <Fragment>
-                {this.state.isPopup ? <div className='popup-direction-form'><Header withBackButton={true} title='Update Search' withSubHeader={false} handleGoBack={() => this.handleShowPopup(false)} /><div className='content global search-panel'><DirectionForm direction={this.props.direction} handleGoBack={() => this.handleShowPopup(false)} /></div></div> : null}
+                {this.state.isPopup ? <div className='popup-direction-form'><Header withBackButton={true} title='Update Search' withSubHeader={false} handleGoBack={() => this.handleShowPopup(false)} /><div className='content global search-panel'><DirectionForm direction={this.props.path} handleGoBack={() => this.handleShowPopup(false)} /></div></div> : null}
                 
                 <header className={`shadow ${this.props.withSubHeader ? 'big-header' : ''}`}>
                     <div className='content'>

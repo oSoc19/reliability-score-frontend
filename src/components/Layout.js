@@ -3,6 +3,7 @@ import Header from './Header/Header'
 import SearchPanel from './SearchPanel'
 import PlannerPanel from './PlannerPanel/PlannerPanel'
 import queryString from 'query-string'
+import { getIntTime, getIntDate } from './Util'
 
 class Layout extends Component {
     state = {
@@ -20,7 +21,9 @@ class Layout extends Component {
     loadDirections = () => {
         this.setState({ isLoading: true })
 
-        fetch(`https://reliability-score.herokuapp.com/connections?from=Vilvoorde&to=Brugge&time=1005&date=160719&timesel=departure`)
+        const { from, to, time, date, timesel } = this.state.pathData
+
+        fetch(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${getIntTime(time)}&date=${getIntDate(date)}&timesel=${timesel}`)
             .then(response => response.json())
             .then(data => {
                 this.setState({

@@ -7,7 +7,7 @@ class DotsTutorial extends Component {
     render() {
         return (
             <div className='how-works white-box shadow'>
-                <div className='close' onClick={this.props.handleConfirm}><span class="icon-close"></span></div>
+                <div className='close' onClick={this.props.handleConfirm}><span className="icon-close"></span></div>
                 <h2>HOW TO WORKS</h2>
 
                 <div className='dots'>

@@ -11,6 +11,7 @@
   "dependencies": {
     "antd": "^3.20.0",
     "chart.js": "^2.8.0",
+    "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-chartkick": "^0.3.1",
     "react-dom": "^16.8.6",
@@ -44,5 +45,5 @@
     "type": "git",
     "url": "git+https://github.com/osoc19/reliability-score-frontend"
   },
-  "homepage": "https://osoc19.github.io/reliability-score-frontend"
+  "homepage": "https://traindelays.be"
 }

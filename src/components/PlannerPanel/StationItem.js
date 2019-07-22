@@ -3,7 +3,6 @@ import { Timeline } from 'antd'
 import propTypes from 'prop-types'
 import { convertTimestampToTime, getTrainType } from '../Util'
 import DirectionChart from './DirectionChart.js'
-import DotsWidget from './DotsWidget'
 
 class StationItem extends Component {
     render() {
@@ -21,9 +20,10 @@ class StationItem extends Component {
                             <h3>{station.stationinfo.name}</h3>
 
                             {!this.props.isLast ? <div className='direction'><b>{getTrainType(station.vehicle)}</b> train to <b>{station.direction.name}</b></div> : null}
+                            <span>Platform <b>{station.platform}</b></span>
                         </div>
 
-                        {this.props.showDetails ? <div className='data-container'><DirectionChart reliabilities={station.reliability} /><DotsWidget title='RELIABILITY' value={2} /></div> : null}
+                        {this.props.showDetails ? <div className='data-container'><DirectionChart reliabilities={station.reliability_graph} /></div> : null}
                     </div>
                 </div>
             </Timeline.Item>

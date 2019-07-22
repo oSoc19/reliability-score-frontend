@@ -3,7 +3,6 @@ import { Timeline } from 'antd'
 import propTypes from 'prop-types'
 import { convertTimestampToTime, getTrainType } from '../Util'
 import DirectionChart from './DirectionChart'
-import DotsWidget from './DotsWidget'
 
 class ViaStationItem extends Component {
     render() {
@@ -14,7 +13,8 @@ class ViaStationItem extends Component {
                 <Timeline.Item color='grey'>
                     <div className='global-station-item'>
                         <div className='time'>
-                            {convertTimestampToTime(station.arrival.time)}
+                            <span className='time'>{convertTimestampToTime(station.arrival.time)}</span>
+                            <span className='platform'>Platform <b>{station.arrival.platform}</b></span>
                         </div>
 
                         <div className='informations'>
@@ -24,11 +24,12 @@ class ViaStationItem extends Component {
                                 <div className='direction'>
                                     <b>{getTrainType(station.vehicle)}</b> train to <b>{station.departure.direction.name}</b>
                                 </div>
+
+                                <span>Platform <b>{station.departure.platform}</b></span>
                             </div>
 
                             <div className='data-container'>
-                                <DirectionChart />
-                                <DotsWidget title='RELIABILITY' value={2} />
+                                <DirectionChart reliabilities={station.reliabilities} />
                             </div>
                         </div>
 

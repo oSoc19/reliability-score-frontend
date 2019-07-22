@@ -73,6 +73,7 @@
 .direction-collection .direction-item {
     margin-bottom: 20px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .direction-collection .direction-item .ant-timeline-item {
@@ -87,11 +88,28 @@
     font-weight: 600;
     color: #484848;
     font-size: 18px;
+    overflow: hidden;
+}
+
+.direction-collection .direction-item .global-station-item .time .time {
+    float: left;
+}
+
+.direction-collection .direction-item .global-station-item .time .platform {
+    float: left;
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .direction-collection .direction-item .global-station-item .informations {
     margin-left: 80px;
     margin-top: -28px;
+    width: 100%;
+}
+
+.direction-collection .direction-item .timeline.extended .global-station-item .informations {
+    width: auto!important;
 }
 
 .direction-collection .direction-item .global-station-item .informations h3 {
@@ -112,8 +130,21 @@
 
 .direction-collection .direction-item .global-dots {
     border-top: 1px dashed #e2e8ec;
-    padding-top: 10px;
+    padding-top: 30px;
     margin-top: -10px;
+    padding-bottom: 20px;
+}
+
+.direction-collection .direction-item .global-dots.extended {
+    width: 100%;
+    padding: 20px 0 0 0;
+    border-top: 1px dashed #e2e8ec;
+    margin-top: 10px;
+    border-left: none;
+}
+
+.direction-collection .direction-item .global-dots.extended .dots-item {
+    padding: 0;
 }
 
 .direction-collection .direction-item .timeline {
@@ -134,6 +165,10 @@
     float: left;
 }
 
+.station {
+    width: calc(100% - 100px);
+}
+
 .direction-collection .direction-item .timeline.extended .global-station-item .informations .data-container {
     float: right;
     overflow: hidden;
@@ -144,8 +179,8 @@
 }
 
 .detail .global-station-item .time:last-of-type {
-    margin-top: -85px;
-    margin-bottom: 85px;
+    margin-top: -180px;
+    margin-bottom: 180px;
 }
 
 .detail .informations {
@@ -178,7 +213,7 @@
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 449px) {
     .direction-collection .direction-item .global-dots {
         padding: 0;
         margin-top: 10px;
@@ -186,6 +221,9 @@
     .direction-collection .direction-item .global-dots .dots-item {
         padding-top: 20px;
         padding-bottom: 0;
+    }
+    .station {
+        width: 100%;
     }
 }
 
@@ -212,5 +250,59 @@
 }
 
 .graph-container {
+    margin-right: 20px;
+}
+
+.direction-collection .direction-item .timeline.extended .global-station-item .informations .data-container {
+    margin-top: -40px;
+}
+
+.detail .global-station-item .time:last-of-type {
+    margin-top: -215px;
+    margin-bottom: 170px;
+}
+
+canvas {
+    width: 200px !important;
+    height: 200px !important;
+}
+
+@media only screen and (max-width: 520px) {
+    .direction-collection .direction-item .timeline.extended .global-station-item .informations .data-container {
+        margin-top: 10px;
+    }
+    .detail .global-station-item .time:last-of-type {
+        margin-top: -280px;
+        margin-bottom: 250px;
+    }
+    .direction-collection .direction-item .timeline.extended .global-station-item .informations .station {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .content .btn-prev-next-group .btn {
+        margin-top: 30px;
+    }
+}
+
+.no-data {
+    width: 200px;
+    height: 200px;
     margin-right:20px;
+}
+
+.no-data img {
+    height: 200px;
+    display: block;
+    width: 200px;
+    opacity: 0.5;
+}
+
+.no-data span {
+    display: block;
+    margin: -150px auto 0 auto;
+    text-align: center;
+    font-size:20px;
+    color:#484848;
 }

@@ -4,7 +4,7 @@ import DirectionStationDetail from './DirectionStationDetail'
 import StationItem from './StationItem'
 import DotsWidget from './DotsWidget'
 import propTypes from 'prop-types'
-import { getStationReliability } from '../Util'
+import { getStationReliability, getScore } from '../Util'
 import './Direction.css'
 
 class DirectionItem extends Component {
@@ -46,7 +46,7 @@ class DirectionItem extends Component {
                     </Timeline>
                 </div>
 
-                {!this.state.showDetails ? <div className='global-dots'><DotsWidget value={2} title='reliability' /></div> : null}
+                <div className={`global-dots ${this.state.showDetails ? 'extended' : ''}`}><DotsWidget value={getScore(direction)} title='reliability' /></div>
             </div>
         )
     }

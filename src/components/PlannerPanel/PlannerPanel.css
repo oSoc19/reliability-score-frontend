@@ -27,6 +27,15 @@
     margin-right: 5px;
 }
 
+.content .btn-prev-next-group .btn.next img {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    margin-right: 5px;
+}
+
 .content .title-day h2 {
     font-size: 30px;
 }
@@ -42,6 +51,24 @@
 
 .content .how-works {
     margin-bottom: 20px;
+}
+
+.content .how-works .dots-item {
+    padding:0!important;
+}
+
+.content .how-works span.description {
+    display: block;
+    margin:0;
+    font-size:12px;
+    color:#bdc3c7;
+}
+
+@media only screen and (max-width: 430px) {
+    .content .how-works {
+        margin-top:50px;
+        margin-bottom:-15px;
+    }
 }
 
 .content .how-works h2 {

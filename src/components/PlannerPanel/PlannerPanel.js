@@ -5,9 +5,10 @@ import DotsTutorial from './DotsTutorial'
 import Cookies from 'universal-cookie'
 import Loading from '../Loading'
 import { Redirect } from 'react-router-dom'
-import PreviousDirection from './PreviousDirections'
+import EarlierDirections from './EarlierDirections'
 import propTypes from 'prop-types'
 import Error from '../Error'
+import LaterDirections from './LaterDirections';
 
 class PlannerPanel extends Component {
     state = {
@@ -51,9 +52,7 @@ class PlannerPanel extends Component {
             <div className='content global big-header-enabled'>
                 {this.state.showTutorial ? <DotsTutorial handleConfirm={this.handleSaveTutorialCookie} /> : null}
 
-                {this.props.isLoading ? <Loading /> : <Fragment><PreviousDirection loadPreviousDirections={this.props.loadPreviousDirections} /></Fragment>}
-
-                <DirectionCollection directions={this.props.directions} />
+                {this.props.isLoading ? <Loading /> : <Fragment><EarlierDirections path={this.props.path} loadDirections={this.props.loadDirections} /><DirectionCollection directions={this.props.directions} /><LaterDirections path={this.props.path} loadDirections={this.props.loadDirections} /></Fragment>}
             </div>
         )
     }
@@ -65,7 +64,6 @@ PlannerPanel.propTypes = {
     loadDirections: propTypes.func.isRequired,
     isLoading: propTypes.bool.isRequired,
     isError: propTypes.bool.isRequired,
-    loadPreviousDirections: propTypes.func.isRequired
 }
 
 export default PlannerPanel

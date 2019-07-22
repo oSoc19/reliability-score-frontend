@@ -26,6 +26,8 @@ class DotsWidget extends Component {
                     <div className={`dot shadow ${this.props.value >= 3 ? dotsColor : 'grey'}`}></div>
                 </div>
                 <span>{this.props.title}</span>
+
+                {this.props.description ? <span className='description'>{this.props.description}</span> : null}
             </div >
         )
     }

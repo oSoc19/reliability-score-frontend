@@ -42,7 +42,7 @@ class DirectionChart extends Component {
                         color: "rgba(0, 0, 0, 0)",
                     },
                     ticks: {
-                        fontSize: 8,
+                        fontSize: 12,
                         fontFamily: "Work Sans",
                         maxRotation: 0,
                         minRotation: 0,
@@ -63,7 +63,7 @@ class DirectionChart extends Component {
                         max: 100,
                         stepSize: 50,
                         beginAtZero: true,
-                        fontSize: 8,
+                        fontSize: 12,
                         fontFamily: "Work Sans",
                         callback: function (value) {
                             return value + '%';

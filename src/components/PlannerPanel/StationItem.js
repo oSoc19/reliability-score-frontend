@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import propTypes from 'prop-types'
 import { convertTimestampToTime, getTrainType } from '../Util'
+import DirectionChart from './DirectionChart.js'
 
 class StationItem extends Component {
     render() {
@@ -9,16 +10,21 @@ class StationItem extends Component {
 
         return (
             <Timeline.Item color={this.props.color} className={`${this.props.isLast ? 'ant-timeline-item-last' : ''}`}>
-                <div className='infos'>
-                    <h3>{convertTimestampToTime(station.time)}</h3>
-
-                    <div className='departure'>
-                        <h2>{station.stationinfo.name}</h2>
-
-                        {station && !this.props.isLast ? <span><b>{getTrainType(station.vehicle)}</b> Train to <b>{station.direction.name}</b></span> : null}
+                <div className='global-station-item'>
+                    <div className='time'>
+                        {convertTimestampToTime(station.time)}
                     </div>
 
-                    {this.props.showPlatform ? <span className='platform'>Platform <b>{station.platforminfo.name}</b></span> : null}
+                    <div className='informations'>
+                        <div className='station'>
+                            <h3>{station.stationinfo.name}</h3>
+
+                            {!this.props.isLast ? <div className='direction'><b>{getTrainType(station.vehicle)}</b> train to <b>{station.direction.name}</b></div> : null}
+                            <span>Platform <b>{station.platform}</b></span>
+                        </div>
+
+                        {this.props.showDetails ? <div className='data-container'><DirectionChart reliabilities={station.reliability_graph} /></div> : null}
+                    </div>
                 </div>
             </Timeline.Item>
         )
@@ -27,7 +33,8 @@ class StationItem extends Component {
 
 StationItem.propTypes = {
     color: propTypes.string.isRequired,
-    station: propTypes.object.isRequired
+    station: propTypes.object.isRequired,
+    showDetails: propTypes.bool.isRequired
 }
 
 export default StationItem

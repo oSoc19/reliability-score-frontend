@@ -22,7 +22,7 @@ html, body {
 
 .white-box {
     background: #fff;
-    padding: 20px 10px;
+    padding: 20px 15px;
     border-radius: 5px;
 }
 
@@ -60,6 +60,10 @@ h1, h2, h3 {
 @media only screen and (min-width: 1000px) {
     .inside-content {
         padding: 10px;
+    }
+
+    .content.search-panel form .radio-line {
+        width:50%;
     }
 }
 

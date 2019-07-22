@@ -34,7 +34,7 @@ class DirectionForm extends Component {
 
     componentWillMount = () => {
         if (this.state.stations.length === 0) {
-            fetch('http://api.irail.be/stations/?format=json&lang=en')
+            fetch('https://api.irail.be/stations/?format=json&lang=en')
                 .then(response => response.json())
                 .then(data => {
                     let stations = data.station.map(s => s.name)

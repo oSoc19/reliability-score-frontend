@@ -38,7 +38,7 @@ class DirectionItem extends Component {
             <div className='direction-item white-box shadow' onClick={this.toggleShowDetail}>
                 <div className={`timeline ${this.state.showDetails ? 'extended' : ''}`}>
                     <Timeline>
-                        <StationItem color={'green'} station={direction.departure} showDetails={this.state.showDetails} />
+                        <StationItem color={'green'} station={direction.departure} showDetails={this.state.showDetails} isFirst={true} />
 
                         {this.state.showDetails && direction.vias ? <DirectionStationDetail viaStations={direction.vias.via} /> : null}
 

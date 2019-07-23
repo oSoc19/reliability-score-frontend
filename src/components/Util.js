@@ -57,6 +57,34 @@ export const getCurrentDateURL = () => {
     return getIntDate(moment(new Date(), 'DD/MM/YYYY'))
 }
 
+export const convertIntTimeToDate = int => {
+    let h = Math.floor(int / 100)
+    let m = int % 100
+
+    return new Date(1990, 1, 1, h, m)
+}
+
+export const convertIntTimeToMoment = int => {
+    let h = Math.floor(int / 100)
+    let m = int % 100
+
+    return moment(`${landingZero(h)}${landingZero(m)}`, "HHmm")
+}
+
+export const convertIntDateToMoment = int => {
+    let h = Math.floor(int / 100)
+    let m = int % 100
+
+    return moment(`${landingZero(Math.floor(int / 10000))}/${landingZero(Math.floor(int / 100) % 100)}/20${int % 100}`, "DD/MM/YYYY")
+}
+
+export const changeHours = (int, plus) => {
+    let d = convertIntTimeToDate(int)
+    plus ? d.setMinutes(d.getMinutes() + 30) : d.setMinutes(d.getMinutes() - 30)
+
+    return `${landingZero(d.getHours())}${landingZero(d.getMinutes())}`
+}
+
 export const getTrainType = id => {
     var filterRegex = new RegExp('(S[0-9])|(ICE)|(THA)|(IC)|(EUR)|(TGV)|(P)|(L)')
     let matched = filterRegex.exec(id)

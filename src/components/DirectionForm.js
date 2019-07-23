@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { AutoComplete, Button, DatePicker, TimePicker, Radio } from 'antd'
 import moment from 'moment'
 import { Redirect } from 'react-router-dom'
-import { removeUTCDate, getIntDate, getIntTime, getIntTimeNoUTC, getCurrentTimeURL } from './Util'
+import { removeUTCDate, getIntDate, getIntTimeNoUTC, getCurrentTimeURL, convertIntTimeToMoment, convertIntDateToMoment } from './Util'
 
 class DirectionForm extends Component {
     state = {
@@ -15,8 +15,8 @@ class DirectionForm extends Component {
         arrivalStation: this.props.direction && this.props.direction.to ? this.props.direction.to : '',
         arrivalStationMissing: false,
 
-        date: this.props.direction && this.props.direction.date ? moment(new Date(this.props.direction.date), 'DD/MM/YYYY') : moment(new Date(), 'DD/MM/YYYY'),
-        time: this.props.direction && this.props.direction.time ? moment(removeUTCDate(new Date(this.props.direction.time)), 'HH:mm') : moment(new Date(), 'HH:mm'),
+        date: this.props.direction && this.props.direction.date ? convertIntDateToMoment(this.props.direction.date) : moment(new Date(), 'DD/MM/YYYY'),
+        time: this.props.direction && this.props.direction.time ? convertIntTimeToMoment(this.props.direction.time) : moment(new Date(), 'HH:mm'),
         isArrivalTime: this.props.direction && this.props.direction.timesel === 'arrival' ? true : false
     }
 

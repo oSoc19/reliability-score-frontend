@@ -24,19 +24,17 @@ class Layout extends Component {
 
             const { from, to, time, date, timesel } = this.state.pathData
 
-            console.log(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${time ? time : getCurrentTimeURL()}&date=${date ? date : getCurrentDateURL()}&timesel=${timesel === 'arrival' ? 'arrival' : 'departure'}`)
-
-            // fetch(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${time ? getIntTime(time) : getIntTimeNoUTC(moment(new Date(), 'HH:mm'))}&date=${date ? getIntDate(date) : getIntDate(moment(new Date(), 'DD/MM/YYYY'))}&timesel=${timesel === 'arrival' ? 'arrival' : 'departure'}`)
-            //     .then(response => response.json())
-            //     .then(data => {
-            //         this.setState({
-            //             directions: data.connection,
-            //             isLoading: false
-            //         })
-            //     })
-            //     .catch(error => {
-            //         this.setState({ error: true })
-            //     })
+            fetch(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${time ? time : getCurrentTimeURL()}&date=${date ? date : getCurrentDateURL()}&timesel=${timesel === 'arrival' ? 'arrival' : 'departure'}`)
+                .then(response => response.json())
+                .then(data => {
+                    this.setState({
+                        directions: data.connection,
+                        isLoading: false
+                    })
+                })
+                .catch(error => {
+                    this.setState({ error: true })
+                })
         }, 100)
     }
 

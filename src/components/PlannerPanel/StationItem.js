@@ -23,7 +23,7 @@ class StationItem extends Component {
                             <span>Platform <b>{station.platform}</b></span>
                         </div>
 
-                        {this.props.showDetails ? <div className='data-container'><DirectionChart reliabilities={station.reliability_graph} /></div> : null}
+                        {this.props.showDetails ? <div className='data-container'><DirectionChart reliabilities={station.reliability_graph} showAxisDetail={this.props.isFirst} /></div> : null}
                     </div>
                 </div>
             </Timeline.Item>

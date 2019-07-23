@@ -3,15 +3,15 @@ import DepartureIcon from '../../images/departure.png'
 import ArrivalIcon from '../../images/arrival.png'
 import CalendarIcon from '../../images/calendar.png'
 import ClockIcon from '../../images/clock.png'
-import { getStringDate, getStringTime, getStringUTCTime } from '../Util'
+import { getStringDateInt, getIntDate, getStringTimeInt, getIntTimeNoUTC } from '../Util'
 import moment from 'moment'
 
 class HeaderDetail extends Component {
     render() {
         const { path } = this.props
 
-        const date = path.date ? getStringDate(moment(new Date(path.date), 'DD/MM/YYYY')) : getStringDate(moment(new Date(), 'DD/MM/YYYY'))
-        const time = path.time ? getStringTime(moment(new Date(path.time), 'HH:mm')) : getStringUTCTime(moment(new Date(), 'HH:mm'))
+        const date = getStringDateInt(path.date ? path.date : getIntDate(moment(new Date(), 'DD/MM/YYYY')))
+        const time = getStringTimeInt(path.time ? path.time : getIntTimeNoUTC(moment(new Date(), 'HH:mm')))
 
         return (
             <div className='details' onClick={this.props.handleShowPopup}>

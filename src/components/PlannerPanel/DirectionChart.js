@@ -4,8 +4,6 @@ import NoChartData from '../../images/no-chart-data.png'
 
 class DirectionChart extends Component {
     render() {
-        console.log(this.props)
-
         if(!this.props.reliabilities) {
             return <div className='no-data'><img src={NoChartData} alt='no charts data' /><span>No data</span></div>
         }
@@ -67,7 +65,8 @@ class DirectionChart extends Component {
                         fontFamily: "Work Sans",
                         callback: function (value) {
                             return value + '%';
-                        }
+                        },
+                        display: this.props.showAxisDetail
                     }
                 }]
             },

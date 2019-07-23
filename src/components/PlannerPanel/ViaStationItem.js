@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import propTypes from 'prop-types'
 import { convertTimestampToTime, getTrainType } from '../Util'
-import DirectionChart from './DirectionChart'
 
 class ViaStationItem extends Component {
+    getDelayMessage = int => {
+        let text = int < 180 ? 'You will likely miss your connection' : 'You might miss your connection'
+        return <div className='notice-station shadow'>{text}</div>
+    }
+
     render() {
         const { station } = this.props
 
@@ -26,10 +30,8 @@ class ViaStationItem extends Component {
                                 </div>
 
                                 <span>Platform <b>{station.departure.platform}</b></span>
-                            </div>
 
-                            <div className='data-container'>
-                                <DirectionChart reliabilities={station.reliabilities} />
+                                {station.timeBetween > 600 ? this.getDelayMessage(station.timeBetween) : null}
                             </div>
                         </div>
 

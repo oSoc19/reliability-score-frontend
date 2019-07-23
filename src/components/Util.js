@@ -1,11 +1,7 @@
+import moment from 'moment'
+
 const landingZero = int => {
     return int < 10 ? `0${int}` : int
-}
-
-export const getStringDate = str => {
-    let date = new Date(str)
-
-    return `${landingZero(date.getDate())}/${landingZero(date.getMonth())}/${landingZero(date.getFullYear())}`
 }
 
 export const getIntDate = str => {
@@ -29,6 +25,14 @@ export const getStringTime = str => {
     return `${landingZero(date.getUTCHours())}:${landingZero(date.getMinutes())}`
 }
 
+export const getStringTimeInt = int => {
+    return `${landingZero(Math.floor(int / 100))}:${landingZero(int % 100)}`
+}
+
+export const getStringDateInt = int => {
+    return `${landingZero(Math.floor(int / 10000))}/${landingZero(Math.floor(int / 100) % 100)}/20${int % 100}`
+}
+
 export const getStringUTCTime = str => {
     let date = new Date(str)
 
@@ -43,6 +47,39 @@ export const convertTimestampToTime = timestamp => {
     let date = new Date(timestamp * 1000)
 
     return `${landingZero(date.getHours())}:${landingZero(date.getMinutes())}`
+}
+
+export const getCurrentTimeURL = () => {
+    return getIntTimeNoUTC(moment(new Date(), 'HH:mm'))
+}
+
+export const getCurrentDateURL = () => {
+    return getIntDate(moment(new Date(), 'DD/MM/YYYY'))
+}
+
+export const convertIntTimeToDate = int => {
+    let h = Math.floor(int / 100)
+    let m = int % 100
+
+    return new Date(1990, 1, 1, h, m)
+}
+
+export const convertIntTimeToMoment = int => {
+    let h = Math.floor(int / 100)
+    let m = int % 100
+
+    return moment(`${landingZero(h)}${landingZero(m)}`, "HHmm")
+}
+
+export const convertIntDateToMoment = int => {
+    return moment(`${landingZero(Math.floor(int / 10000))}/${landingZero(Math.floor(int / 100) % 100)}/20${int % 100}`, "DD/MM/YYYY")
+}
+
+export const changeHours = (int, plus) => {
+    let d = convertIntTimeToDate(int)
+    plus ? d.setMinutes(d.getMinutes() + 30) : d.setMinutes(d.getMinutes() - 30)
+
+    return `${landingZero(d.getHours())}${landingZero(d.getMinutes())}`
 }
 
 export const getTrainType = id => {
@@ -65,19 +102,33 @@ export const getScore = direction => {
     let worstTime = 0
 
     if (direction.vias) {
-        // Checker dans les via
         for (let v of direction.vias.via) {
-            if (v.timeBetween > worstTime) worstTime = v.timeBetween
+            // For each via, calculate the most probability of them
+            let bestProbability = {
+                delay: null,
+                probability: null
+            }
+            
+            for(let t in v.arrival.reliability_graph) {
+                if(bestProbability.probability < v.arrival.reliability_graph[t]) {
+                    bestProbability.delay = t
+                    bestProbability.probability = v.arrival.reliability_graph[t]
+                }
+            }
+
+            console.log(bestProbability)
         }
 
-        let value = 1
-        if(worstTime > 600) {
-            value = 3
-        } else if(worstTime > 180) {
-            value = 2
-        }
+        // console.log(worstTime)
 
-        return value
+        // let value = 1
+        // if(worstTime > 600) {
+        //     value = 3
+        // } else if(worstTime > 180) {
+        //     value = 2
+        // }
+
+        return 3
     } else {
         let value = 3
         if(direction.arrival.delay > 900) {

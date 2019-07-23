@@ -3,8 +3,7 @@ import Header from './Header/Header'
 import SearchPanel from './SearchPanel'
 import PlannerPanel from './PlannerPanel/PlannerPanel'
 import queryString from 'query-string'
-import { getIntTime, getIntDate, getIntTimeNoUTC } from './Util'
-import moment from 'moment'
+import { getCurrentTimeURL, getCurrentDateURL } from './Util';
 
 class Layout extends Component {
     state = {
@@ -25,9 +24,7 @@ class Layout extends Component {
 
             const { from, to, time, date, timesel } = this.state.pathData
 
-            console.log(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${time ? getIntTime(time) : getIntTimeNoUTC(moment(new Date(), 'HH:mm'))}&date=${date ? getIntDate(date) : getIntDate(moment(new Date(), 'DD/MM/YYYY'))}&timesel=${timesel === 'arrival' ? 'arrival' : 'departure'}`)
-
-            fetch(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${time ? getIntTime(time) : getIntTimeNoUTC(moment(new Date(), 'HH:mm'))}&date=${date ? getIntDate(date) : getIntDate(moment(new Date(), 'DD/MM/YYYY'))}&timesel=${timesel === 'arrival' ? 'arrival' : 'departure'}`)
+            fetch(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${time ? time : getCurrentTimeURL()}&date=${date ? date : getCurrentDateURL()}&timesel=${timesel === 'arrival' ? 'arrival' : 'departure'}`)
                 .then(response => response.json())
                 .then(data => {
                     this.setState({

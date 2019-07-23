@@ -98,6 +98,30 @@ export const getStationReliability = station => {
     return reliability
 }
 
+export const getViaScore = via => {
+    let bestProbability = {
+        delay: null,
+        probability: null
+    }
+
+    for (let t in via.arrival.reliability_graph) {
+        if (bestProbability.probability < via.arrival.reliability_graph[t]) {
+            bestProbability.delay = t
+            bestProbability.probability = via.arrival.reliability_graph[t]
+        }
+    }
+
+    let realTimeBetween = via.timeBetween - (bestProbability.delay * 60)
+
+    if (realTimeBetween > 600)
+        return 3
+
+    if (realTimeBetween >= 180)
+        return 2
+
+    return 1
+}
+
 export const getScore = direction => {
     if (direction.vias) {
         let worstInterval = null
@@ -127,7 +151,7 @@ export const getScore = direction => {
 
         if (worstInterval >= 180)
             return 2
-        
+
         return 1
     } else {
         let value = 3

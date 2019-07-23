@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { AutoComplete, Button, DatePicker, TimePicker, Radio } from 'antd'
 import moment from 'moment'
 import { Redirect } from 'react-router-dom'
-import { removeUTCDate, getIntDate, getIntTimeNoUTC, getCurrentTimeURL, convertIntTimeToMoment, convertIntDateToMoment } from './Util'
+import { getIntDate, getIntTimeNoUTC, getCurrentTimeURL, convertIntTimeToMoment, convertIntDateToMoment } from './Util'
 
 class DirectionForm extends Component {
     state = {

@@ -72,9 +72,6 @@ export const convertIntTimeToMoment = int => {
 }
 
 export const convertIntDateToMoment = int => {
-    let h = Math.floor(int / 100)
-    let m = int % 100
-
     return moment(`${landingZero(Math.floor(int / 10000))}/${landingZero(Math.floor(int / 100) % 100)}/20${int % 100}`, "DD/MM/YYYY")
 }
 

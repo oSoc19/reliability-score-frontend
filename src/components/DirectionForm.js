@@ -34,7 +34,7 @@ class DirectionForm extends Component {
 
     componentWillMount = () => {
         if (this.state.stations.length === 0) {
-            fetch('http://api.irail.be/stations/?format=json&lang=en')
+            fetch('https://api.irail.be/stations/?format=json&lang=en')
                 .then(response => response.json())
                 .then(data => {
                     let stations = data.station.map(s => s.name)
@@ -89,9 +89,11 @@ class DirectionForm extends Component {
 
     render() {
         if (this.state.redirect) {
-            if (this.props.handleGoBack) {
+            if (this.props.handleGoBack)
                 this.props.handleGoBack()
-            }
+
+            if(this.props.loadDirections)
+                this.props.loadDirections()
 
             return <Redirect to={`/planner/?from=${this.state.departureStation}&to=${this.state.arrivalStation}&date=${this.state.date ? this.state.date : moment(new Date(), 'DD/MM/YYYY')}&time=${this.state.time ? this.state.time : moment(new Date(), 'HH:mm')}&${this.state.isArrivalTime ? 'timesel=arrival' : 'timesel=departure'}`}></Redirect>
         }
@@ -130,12 +132,12 @@ class DirectionForm extends Component {
 
                 <div className='time-form'>
                     <div className='item'>
-                        <span className='title-form'>WHEN</span>
+                        <span className='title-form'>DATE</span>
                         <DatePicker format='DD/MM/YYYY' allowClear={false} onChange={this.handleSelectDate} defaultValue={this.state.date} />
                     </div>
 
                     <div className='item'>
-                        <span className='title-form'>AT</span>
+                        <span className='title-form'>TIME</span>
                         <TimePicker format='HH:mm' minuteStep={10} allowClear={false} onChange={this.handleSelectTime} defaultValue={this.state.time} />
                     </div>
                 </div>

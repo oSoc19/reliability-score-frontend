@@ -3,6 +3,8 @@ import Header from './Header/Header'
 import SearchPanel from './SearchPanel'
 import PlannerPanel from './PlannerPanel/PlannerPanel'
 import queryString from 'query-string'
+import { getIntTime, getIntDate, getIntTimeNoUTC } from './Util'
+import moment from 'moment'
 
 class Layout extends Component {
     state = {
@@ -18,19 +20,25 @@ class Layout extends Component {
     }
 
     loadDirections = () => {
-        this.setState({ isLoading: true })
+        setTimeout(() => {
+            this.setState({ pathData: queryString.parse(this.props.location.search), isLoading: true })
 
-        fetch(`https://reliability-score.herokuapp.com/connections?from=Vilvoorde&to=Brugge&time=1005&date=160719&timesel=departure`)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    directions: data.connection,
-                    isLoading: false
+            const { from, to, time, date, timesel } = this.state.pathData
+
+            console.log(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${time ? getIntTime(time) : getIntTimeNoUTC(moment(new Date(), 'HH:mm'))}&date=${date ? getIntDate(date) : getIntDate(moment(new Date(), 'DD/MM/YYYY'))}&timesel=${timesel === 'arrival' ? 'arrival' : 'departure'}`)
+
+            fetch(`https://reliability-score.herokuapp.com/connections?from=${from}&to=${to}&time=${time ? getIntTime(time) : getIntTimeNoUTC(moment(new Date(), 'HH:mm'))}&date=${date ? getIntDate(date) : getIntDate(moment(new Date(), 'DD/MM/YYYY'))}&timesel=${timesel === 'arrival' ? 'arrival' : 'departure'}`)
+                .then(response => response.json())
+                .then(data => {
+                    this.setState({
+                        directions: data.connection,
+                        isLoading: false
+                    })
                 })
-            })
-            .catch(error => {
-                this.setState({ error: true })
-            })
+                .catch(error => {
+                    this.setState({ error: true })
+                })
+        }, 100)
     }
 
     render() {
@@ -53,14 +61,14 @@ class Layout extends Component {
             default:
                 currentComponent = <SearchPanel />
                 withBackButton = false
-                titleHeader = 'Infrabel'
+                titleHeader = 'TrainDelays'
                 withSubHeader = false
                 break;
         }
 
         return (
             <Fragment>
-                <Header withBackButton={withBackButton} title={titleHeader} withSubHeader={withSubHeader} path={parsedUrl} />
+                <Header withBackButton={withBackButton} title={titleHeader} withSubHeader={withSubHeader} path={parsedUrl} loadDirections={this.loadDirections} />
 
                 {currentComponent}
             </Fragment>

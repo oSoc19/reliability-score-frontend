@@ -9,6 +9,7 @@
     font-size: 16px;
     cursor: pointer;
     margin: auto auto 10px auto;
+    cursor: pointer;
 }
 
 .content .btn-prev-next-group .btn img {
@@ -26,6 +27,15 @@
     margin-right: 5px;
 }
 
+.content .btn-prev-next-group .btn.next img {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    margin-right: 5px;
+}
+
 .content .title-day h2 {
     font-size: 30px;
 }
@@ -39,221 +49,26 @@
     width: 100%;
 }
 
-.direction-collection .direction-item {
-    margin: 10px 0 20px;
-    overflow: hidden;
-}
-
-.direction-item .ant-timeline-item-head-green {
-    border-color: #00da67;
-    background: #00da67;
-    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
-    box-shadow: 0 3px 10px 0 #0000001f;
-    border-radius: 5px;
-}
-
-.direction-item .ant-timeline-item-head-red {
-    border-color: #ff2b50;
-    background: #ff2b50;
-    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
-    box-shadow: 0 3px 10px 0 #0000001f;
-    border-radius: 5px;
-}
-
-.direction-item .ant-timeline-item-head-grey {
-    border-color: #dfe8f0!important;
-    background: #dfe8f0;
-    margin-top: 25px!important;
-    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
-    box-shadow: 0 3px 10px 0 #0000001f;
-    border-radius: 5px;
-}
-
-.direction-item .ant-timeline {
-    margin-left: 60px;
-}
-
-.direction-collection .ant-timeline-item-tail {
-    border-left-style: dashed;
-    -webkit-box-shadow: 0 3px 10px 0 #0000001f;
-    box-shadow: 0 3px 10px 0 #0000001f;
-    border-radius: 5px;
-}
-
-.direction-collection .direction-item .infos {
-    margin-left: -75px;
-    overflow: hidden;
-}
-
-.direction-collection .direction-item .infos h3 {
-    float: left;
-    font-size: 17px;
-    color: #484848;
-    font-weight: 500;
-}
-
-.direction-collection .direction-item .infos .departure {
-    float: left;
-    margin-left: 30px;
-}
-
-.direction-collection .direction-item .infos .departure h2 {
-    font-size: 17px;
-    color: #484848;
-    font-weight: 300;
-}
-
-.direction-collection .direction-item .infos .departure span {
-    color: #484848;
-    font-weight: 300;
-    font-style: italic;
-    margin-top: -5px;
-    display: block;
-}
-
-.direction-collection .direction-item .infos .platform {
-    float: right;
-    display: block;
-    font-weight: 300;
-    color: #484848;
-    margin-top: 3px;
-}
-
-.direction-collection .direction-item .ant-timeline-item-head {
-    margin-top: 2px;
-}
-
-.direction-collection .direction-item .ant-timeline-item:last-of-type {
-    padding: 0;
-}
-
-.direction-collection .direction-item .ant-timeline-item-last>.ant-timeline-item-content {
-    min-height: 0;
-}
-
-.direction-item.white-box {
-    padding-bottom: 3px;
-    cursor: pointer;
-}
-
-.direction-collection .direction-item .timeline {
-    float: left;
-}
-
-.direction-collection .direction-item .timeline.wide {
-    float: none;
-}
-
-.direction-collection .direction-item .informations {
-    float: right;
-    border-left: 1px solid #E2E8ED;
-    padding: 25px 0 25px 15px;
-}
-
-.dots-item {
-    overflow: hidden;
-}
-
-.global-dots {
-    margin-left: calc((100% - 45px) / 2);
-}
-
-.global-dots .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 100%;
-    margin-right: 5px;
-    float: left;
-}
-
-.global-dots .dot.green {
-    background: #00da67;
-}
-
-.global-dots .dot.grey {
-    background: #dfe8f0;
-}
-
-.global-dots .dot.red {
-    background: #ff2b50;
-}
-
-.global-dots .dot.orange {
-    background: #ffa100;
-}
-
-.global-dots .dot:last-of-type {
-    margin-right: 0;
-}
-
-.dots-item span {
-    display: block;
-    margin-top: 20px;
-    font-weight: 400;
-    color: #484848;
-    font-size: 12px;
-    text-align: center;
-}
-
-.direction-collection .direction-item .ant-progress-circle .ant-progress-text {
-    font-size: 14px;
-    font-family: 'Work Sans', sans-serif;
-    color: #EE5253;
-    font-weight: 600;
-}
-
-.direction-collection .direction-item .progress-info span {
-    display: block;
-}
-
-.direction-collection .direction-item .progress-info span.percent {
-    color: #484848;
-    font-weight: 300;
-    font-size: 10px;
-    margin-top: 4px;
-}
-
-.direction-collection .direction-item .details-stations .infos {
-    margin-bottom: 5px;
-}
-
-.direction-collection .direction-item .details-stations .infos .line {
-    overflow: hidden;
-    margin: 5px 0;
-    padding: 0;
-}
-
-.direction-collection .direction-item .details-stations .line.station-name {
-    margin-top: -30px;
-}
-
-.direction-collection .direction-item .details-stations .infos .departure {
-    margin-left: 75px;
-    width: calc(100% - 75px);
-}
-
-.direction-collection .direction-item .details-stations .infos .departure .platform {
-    display: block;
-    font-weight: 300;
-    color: #484848;
-    margin-top: 3px;
-    font-style: normal;
-}
-
-.direction-collection .direction-item .details-stations .infos .line.arrival-time {
-    margin-top: -30px;
-}
-
-.direction-collection .direction-item .details-stations .detail:last-of-type {
-    margin-bottom: 15px;
-}
-
-.direction-collection .direction-item .global-delay-details {
-    margin-top: 5px;
-}
-
 .content .how-works {
     margin-bottom: 20px;
+}
+
+.content .how-works .dots-item {
+    padding:0!important;
+}
+
+.content .how-works span.description {
+    display: block;
+    margin:0;
+    font-size:12px;
+    color:#bdc3c7;
+}
+
+@media only screen and (max-width: 430px) {
+    .content .how-works {
+        margin-top:50px;
+        margin-bottom:-15px;
+    }
 }
 
 .content .how-works h2 {
@@ -314,33 +129,4 @@
     -ms-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
-}
-
-@media only screen and (max-width: 330px) {
-    header .details .line:last-of-type {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .content .direction-collection .direction-item .informations {
-        display: none;
-    }
-}
-
-.global-delay-details hr {
-    border-width: 0 0 1px 0;
-    border-color: #e8e8e8;
-    border-style: dashed;
-    margin-bottom: 10px;
-}
-
-.global-delay-details .notice {
-    text-align: left;
-    font-size: 15px;
-    border-radius: 5px;
-    color: blue;
-    margin-bottom: 10px;
-    color: #FF4757;
-    font-weight: 500;
 }

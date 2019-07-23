@@ -21,6 +21,11 @@
     width: 100%;
 }
 
+.content.search-panel form .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    background: #57606f;
+    border-color: #57606f;
+}
+
 .content.search-panel .time-form {
     display: flex;
 }

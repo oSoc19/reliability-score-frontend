@@ -31,7 +31,7 @@ class ViaStationItem extends Component {
 
                                 <span>Platform <b>{station.departure.platform}</b></span>
 
-                                {station.timeBetween > 600 ? this.getDelayMessage(station.timeBetween) : null}
+                                {station.timeBetween < 600 ? this.getDelayMessage(station.timeBetween) : null}
                             </div>
                         </div>
 

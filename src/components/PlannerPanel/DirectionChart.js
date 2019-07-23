@@ -1,36 +1,73 @@
 import React, { Component } from 'react'
-import propTypes from 'prop-types'
 import { Bar } from 'react-chartjs-2'
+import NoChartData from '../../images/no-chart-data.png'
 
 class DirectionChart extends Component {
     render() {
+        console.log(this.props)
+
+        if(!this.props.reliabilities) {
+            return <div className='no-data'><img src={NoChartData} alt='no charts data' /><span>No data</span></div>
+        }
+
+        let chartsData = []
+        if(this.props.reliabilities) {
+            for(let s in this.props.reliabilities) {
+                chartsData.push(this.props.reliabilities[s])
+            }
+        }
+
         const data = {
             datasets: [{
-                data: [0.2, 0.4, .78, 0.05],
-                backgroundColor: ["#FF6384",
-                    "#4BC0C0",
-                    "#FFCE56",
-                    "#36A2EB"],
-                borderWidth: 0
+                data: chartsData,
+                backgroundColor: "#3742fa"
             }],
-            labels: ['1', '2', '3', '4']
+            labels: ['0\'', '', '', '', '', '5\'', '', '', '', '', '10\'', '', '', '', '', '', '15\'+']
         }
 
         const options = {
-            legend: { display: false },
+            legend: {
+                display: false
+            },
             animation: {
                 animateScale: true
             },
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 xAxes: [{
                     barPercentage: 1,
-                    categoryPercentage: 1
+                    categoryPercentage: 1,
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    },
+                    ticks: {
+                        fontSize: 12,
+                        fontFamily: "Work Sans",
+                        maxRotation: 0,
+                        minRotation: 0,
+                        autoSkip: false,
+                        callback: function (value) {
+                            return value
+                        }
+                    }
                 }],
                 yAxes: [{
                     barPercentage: 1,
                     categoryPercentage: 1,
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    },
                     ticks: {
-                        beginAtZero: true
+                        min: 0,
+                        max: 100,
+                        stepSize: 50,
+                        beginAtZero: true,
+                        fontSize: 12,
+                        fontFamily: "Work Sans",
+                        callback: function (value) {
+                            return value + '%';
+                        }
                     }
                 }]
             },
@@ -41,19 +78,10 @@ class DirectionChart extends Component {
 
         return (
             <div className='graph-container'>
-                <Bar
-                    data={data}
-                    width={100}
-                    height={200}
-                    options={options}
-                />
+                <Bar data={data} options={options} />
             </div>
         )
     }
-}
-
-DirectionChart.propTypes = {
-    reliabilities: propTypes.array.isRequired
 }
 
 export default DirectionChart

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
 
-class DotsWidgetComponent extends Component {
+class DotsWidget extends Component {
     render() {
         let dotsColor = 'grey'
         switch (this.props.value) {
@@ -20,20 +20,22 @@ class DotsWidgetComponent extends Component {
 
         return (
             <div className='dots-item'>
-                <div className='global-dots'>
+                <div className='dots-container'>
                     <div className={`dot shadow ${this.props.value >= 1 ? dotsColor : 'grey'}`}></div>
                     <div className={`dot shadow ${this.props.value >= 2 ? dotsColor : 'grey'}`}></div>
                     <div className={`dot shadow ${this.props.value >= 3 ? dotsColor : 'grey'}`}></div>
                 </div>
                 <span>{this.props.title}</span>
+
+                {this.props.description ? <span className='description'>{this.props.description}</span> : null}
             </div >
         )
     }
 }
 
-DotsWidgetComponent.propTypes = {
+DotsWidget.propTypes = {
     value: propTypes.number.isRequired,
     title: propTypes.string.isRequired
 }
 
-export default DotsWidgetComponent
+export default DotsWidget

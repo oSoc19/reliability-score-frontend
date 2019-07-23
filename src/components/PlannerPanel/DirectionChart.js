@@ -4,8 +4,6 @@ import NoChartData from '../../images/no-chart-data.png'
 
 class DirectionChart extends Component {
     render() {
-        console.log(this.props.showAxisDetail)
-
         if(!this.props.reliabilities) {
             return <div className='no-data'><img src={NoChartData} alt='no charts data' /><span>No data</span></div>
         }

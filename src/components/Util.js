@@ -1,11 +1,7 @@
+import moment from 'moment'
+
 const landingZero = int => {
     return int < 10 ? `0${int}` : int
-}
-
-export const getStringDate = str => {
-    let date = new Date(str)
-
-    return `${landingZero(date.getDate())}/${landingZero(date.getMonth())}/${landingZero(date.getFullYear())}`
 }
 
 export const getIntDate = str => {
@@ -29,6 +25,14 @@ export const getStringTime = str => {
     return `${landingZero(date.getUTCHours())}:${landingZero(date.getMinutes())}`
 }
 
+export const getStringTimeInt = int => {
+    return `${landingZero(Math.floor(int / 100))}:${landingZero(int % 100)}`
+}
+
+export const getStringDateInt = int => {
+    return `${landingZero(Math.floor(int / 10000))}/${landingZero(Math.floor(int / 100) % 100)}/20${int % 100}`
+}
+
 export const getStringUTCTime = str => {
     let date = new Date(str)
 
@@ -43,6 +47,14 @@ export const convertTimestampToTime = timestamp => {
     let date = new Date(timestamp * 1000)
 
     return `${landingZero(date.getHours())}:${landingZero(date.getMinutes())}`
+}
+
+export const getCurrentTimeURL = () => {
+    return getIntTimeNoUTC(moment(new Date(), 'HH:mm'))
+}
+
+export const getCurrentDateURL = () => {
+    return getIntDate(moment(new Date(), 'DD/MM/YYYY'))
 }
 
 export const getTrainType = id => {

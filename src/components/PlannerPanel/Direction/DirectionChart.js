@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2'
-import NoChartData from '../../images/no-chart-data.png'
+import NoChartData from '../../../images/no-chart-data.png'
 
 class DirectionChart extends Component {
     render() {

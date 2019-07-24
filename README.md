@@ -15,24 +15,13 @@ With TrainDelay you won't arrive too late at that important meeting again. Thank
 
 ## File structure
 
-.
-+-- _config.yml
-+-- _drafts
-|   +-- begin-with-the-crazy-ideas.textile
-|   +-- on-simplicity-in-technology.markdown
-+-- _includes
-|   +-- footer.html
-|   +-- header.html
-+-- _layouts
-|   +-- default.html
-|   +-- post.html
-+-- _posts
-|   +-- 2007-10-29-why-every-programmer-should-play-nethack.textile
-|   +-- 2009-04-26-barcamp-boston-4-roundup.textile
-+-- _data
-|   +-- members.yml
-+-- _site
-+-- index.html
+├── _src						 		 # Source files
+├── _Component				 # All components (CSS Included)
+				├── Header				# Header components (CSS Included)
+				├── PlannerPanel		# All components
+		├── Fonts						   # Fonts folder
+		├── Images						 # Images folder
+    ├── LICENSE
 
 ## API Documentation
 API Documentation can be found at https://github.com/oSoc19/reliability-score-backend/blob/develop/README.md

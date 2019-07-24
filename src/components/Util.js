@@ -98,40 +98,66 @@ export const getStationReliability = station => {
     return reliability
 }
 
+export const getViaScore = via => {
+    let bestProbability = {
+        delay: null,
+        probability: null
+    }
+
+    for (let t in via.arrival.reliability_graph) {
+        if (bestProbability.probability < via.arrival.reliability_graph[t]) {
+            bestProbability.delay = t
+            bestProbability.probability = via.arrival.reliability_graph[t]
+        }
+    }
+
+    let realTimeBetween = via.timeBetween - (bestProbability.delay * 60)
+
+    if (realTimeBetween >= 480)
+        return 3
+
+    if (realTimeBetween >= 180)
+        return 2
+
+    return 1
+}
+
 export const getScore = direction => {
     if (direction.vias) {
+        let worstInterval = null
+
         for (let v of direction.vias.via) {
-            // For each via, calculate the most probability of them
+            // For each via, calculate the most likely of them
             let bestProbability = {
                 delay: null,
                 probability: null
             }
-            
-            for(let t in v.arrival.reliability_graph) {
-                if(bestProbability.probability < v.arrival.reliability_graph[t]) {
+
+            for (let t in v.arrival.reliability_graph) {
+                if (bestProbability.probability < v.arrival.reliability_graph[t]) {
                     bestProbability.delay = t
                     bestProbability.probability = v.arrival.reliability_graph[t]
                 }
             }
 
-            console.log(bestProbability)
+            let realTimeBetween = v.timeBetween - (bestProbability.delay * 60)
+
+            if (!worstInterval || realTimeBetween < worstInterval)
+                worstInterval = realTimeBetween
         }
 
-        // console.log(worstTime)
+        if (worstInterval > 600)
+            return 3
 
-        // let value = 1
-        // if(worstTime > 600) {
-        //     value = 3
-        // } else if(worstTime > 180) {
-        //     value = 2
-        // }
+        if (worstInterval >= 180)
+            return 2
 
-        return 3
+        return 1
     } else {
         let value = 3
-        if(direction.arrival.delay > 900) {
+        if (direction.arrival.delay > 900) {
             value = 1
-        } else if(direction.arrival.delay > 300) {
+        } else if (direction.arrival.delay > 300) {
             value = 2
         }
 

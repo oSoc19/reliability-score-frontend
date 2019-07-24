@@ -6,7 +6,7 @@ import '../Animations.css'
 import Logo from '../../images/logo.png'
 import HeaderDetail from './HeaderDetail'
 import DirectionForm from '../DirectionForm'
-import HeaderBackButton from './HeaderBackButton';
+import HeaderBackButton from './HeaderBackButton'
 
 class Header extends Component {
     state = {

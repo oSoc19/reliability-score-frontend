@@ -66,7 +66,7 @@
 
 @media only screen and (max-width: 430px) {
     .content .how-works {
-        margin-top:50px;
+        margin-top:0px;
         margin-bottom:-15px;
     }
 }

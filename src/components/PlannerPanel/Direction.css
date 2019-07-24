@@ -213,6 +213,11 @@
     color: red;
 }
 
+.notice-station.empty {
+    background: none;
+    height:40px;
+}
+
 .graph-container {
     margin-right: 20px;
 }

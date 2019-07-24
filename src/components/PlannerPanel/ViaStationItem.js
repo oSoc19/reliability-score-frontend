@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import propTypes from 'prop-types'
-import { convertTimestampToTime, getTrainType } from '../Util'
+import { convertTimestampToTime, getTrainType, getViaScore } from '../Util'
 
 class ViaStationItem extends Component {
-    getDelayMessage = int => {
-        let text = int < 180 ? 'You will likely miss your connection' : 'You might miss your connection'
+    getDelayMessage = score => {
+        if(score >= 3)
+            return <div className='notice-station empty'></div>
+        
+        let text = score < 1 ? 'You will likely miss your connection' : 'You might miss your connection'
         return <div className='notice-station shadow'>{text}</div>
     }
 
     render() {
         const { station } = this.props
+
+        console.log(getViaScore(station))
 
         return (
             <div className='detail'>
@@ -26,12 +31,12 @@ class ViaStationItem extends Component {
                                 <h3>{station.station}</h3>
 
                                 <div className='direction'>
-                                    <b>{getTrainType(station.vehicle)}</b> train to <b>{station.departure.direction.name}</b>
+                                    <b>{getTrainType(station.departure.vehicle)}</b> train to <b>{station.departure.direction.name}</b>
                                 </div>
 
                                 <span>Platform <b>{station.departure.platform}</b></span>
 
-                                {station.timeBetween > 600 ? this.getDelayMessage(station.timeBetween) : null}
+                                {this.getDelayMessage(getViaScore(station))}
                             </div>
                         </div>
 

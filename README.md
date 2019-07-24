@@ -15,12 +15,13 @@ With TrainDelay you won't arrive too late at that important meeting again. Thank
 
 ## File structure
 
-├── src						 		 # Source files
-	├── Component				 # All components (CSS Included)
-		├── Header				# Header components (CSS Included)
-		├── PlannerPanel		# All components
-	├── Fonts						   # Fonts folder
-	├── Images						 # Images folder
+	├── src						 		 # Source files
+		├── Component				 # All components (CSS Included)
+				├── Header				# Header components (CSS Included)
+				├── PlannerPanel		# All components
+		├── Fonts						   # Fonts folder
+		├── Images						 # Images folder
+    ├── LICENSE
 
 ## API Documentation
 API Documentation can be found at https://github.com/oSoc19/reliability-score-backend/blob/develop/README.md

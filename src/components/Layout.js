@@ -3,7 +3,7 @@ import Header from './Header/Header'
 import SearchPanel from './SearchPanel'
 import PlannerPanel from './PlannerPanel/PlannerPanel'
 import queryString from 'query-string'
-import { getCurrentTimeURL, getCurrentDateURL } from './Util';
+import { getCurrentTimeURL, getCurrentDateURL } from './Util'
 
 class Layout extends Component {
     state = {

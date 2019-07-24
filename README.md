@@ -14,10 +14,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 With TrainDelay you won't arrive too late at that important meeting again. Thanks to our application, you can predict the possible delays of your train trip in advance. Machine Learning based insights tell you when to take a train earlier.
 
 ## File structure
-.
-
-
-
 
 .
 +-- _config.yml

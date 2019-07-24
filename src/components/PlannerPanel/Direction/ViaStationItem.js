@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import propTypes from 'prop-types'
-import { convertTimestampToTime, getTrainType, getViaScore } from '../Util'
+import { convertTimestampToTime, getTrainType, getViaScore } from '../../Util'
 
 class ViaStationItem extends Component {
     getDelayMessage = score => {

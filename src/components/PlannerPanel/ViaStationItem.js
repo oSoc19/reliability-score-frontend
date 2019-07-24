@@ -6,7 +6,7 @@ import { convertTimestampToTime, getTrainType, getViaScore } from '../Util'
 class ViaStationItem extends Component {
     getDelayMessage = score => {
         if(score >= 3)
-            return null
+            return <div className='notice-station empty'></div>
         
         let text = score < 1 ? 'You will likely miss your connection' : 'You might miss your connection'
         return <div className='notice-station shadow'>{text}</div>

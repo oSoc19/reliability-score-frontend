@@ -22,9 +22,9 @@ With TrainDelay you won't arrive too late at that important meeting again. Thank
 ## File structure
 
 	├── _src						 		 # Source files
-	    ├── Component				 # All components (CSS Included)
-				├── Header				# Header components (CSS Included)
-				├── PlannerPanel		# All components
+	    ├── _Component				 # All components (CSS Included)
+			├── Header				# Header components (CSS Included)
+			├── PlannerPanel		# All components
 		├── Fonts						   # Fonts folder
 		├── Images						 # Images folder
     ├── LICENSE

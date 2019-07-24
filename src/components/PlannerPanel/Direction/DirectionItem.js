@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import DirectionStationDetail from './DirectionStationDetail'
 import StationItem from './StationItem'
-import DotsWidget from './DotsWidget'
+import DotsWidget from '../DotsWidget'
 import propTypes from 'prop-types'
-import { getStationReliability, getScore } from '../Util'
+import { getStationReliability, getScore } from '../../Util'
 import './Direction.css'
 
 class DirectionItem extends Component {

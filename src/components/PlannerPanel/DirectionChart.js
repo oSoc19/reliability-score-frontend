@@ -64,7 +64,7 @@ class DirectionChart extends Component {
                         fontSize: 12,
                         fontFamily: "Work Sans",
                         callback: function (value) {
-                            return value + '%';
+                            return value + '%'
                         },
                         display: this.props.showAxisDetail
                     }

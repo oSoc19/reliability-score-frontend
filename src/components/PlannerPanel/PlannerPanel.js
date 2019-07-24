@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom'
 import EarlierDirections from './EarlierDirections'
 import propTypes from 'prop-types'
 import Error from '../Error'
-import LaterDirections from './LaterDirections';
+import LaterDirections from './LaterDirections'
 
 class PlannerPanel extends Component {
     state = {

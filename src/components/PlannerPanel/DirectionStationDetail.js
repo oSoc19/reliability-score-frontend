@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
-import ViaStationItem from './ViaStationItem';
+import ViaStationItem from './ViaStationItem'
 
 class DirectionStationDetail extends Component {
     render() {

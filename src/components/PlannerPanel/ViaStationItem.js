@@ -31,7 +31,7 @@ class ViaStationItem extends Component {
                                 <h3>{station.station}</h3>
 
                                 <div className='direction'>
-                                    <b>{getTrainType(station.vehicle)}</b> train to <b>{station.departure.direction.name}</b>
+                                    <b>{getTrainType(station.departure.vehicle)}</b> train to <b>{station.departure.direction.name}</b>
                                 </div>
 
                                 <span>Platform <b>{station.departure.platform}</b></span>

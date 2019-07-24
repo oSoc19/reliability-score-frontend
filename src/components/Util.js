@@ -113,7 +113,7 @@ export const getViaScore = via => {
 
     let realTimeBetween = via.timeBetween - (bestProbability.delay * 60)
 
-    if (realTimeBetween > 600)
+    if (realTimeBetween >= 480)
         return 3
 
     if (realTimeBetween >= 180)

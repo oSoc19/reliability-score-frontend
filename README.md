@@ -7,23 +7,24 @@
 | [![Build Status](https://travis-ci.org/oSoc19/reliability-score-frontend.svg?branch=develop)](https://travis-ci.org/oSoc19/reliability-score-frontend) | [![Build Status](https://travis-ci.org/oSoc19/reliability-score-frontend.svg?branch=master)](https://travis-ci.org/oSoc19/reliability-score-frontend) |
 
 
-
-
-
-
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Hierarchy
-    .
-    ├── build                   # Compiled files (alternatively `dist`)
-    ├── docs                    # Documentation files (alternatively `doc`)
-    ├── src                     # Source files (alternatively `lib` or `app`)
-    ├── test                    # Automated tests (alternatively `spec` or `tests`)
-    ├── tools                   # Tools and utilities
+# TrainDelay
+
+With TrainDelay you won't arrive too late at that important meeting again. Thanks to our application, you can predict the possible delays of your train trip in advance. Machine Learning based insights tell you when to take a train earlier.
+
+## File structure
+
+	├── src						 		 # Source files
+		├── Component				 # All components (CSS Included)
+				├── Header				# Header components (CSS Included)
+				├── PlannerPanel		# All components
+		├── Fonts						   # Fonts folder
+		├── Images						 # Images folder
     ├── LICENSE
-    └── README.md
+
+## API Documentation
+API Documentation can be found at https://github.com/oSoc19/reliability-score-backend/blob/develop/README.md
 
 ## Available Scripts
 

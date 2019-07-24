@@ -7,6 +7,12 @@
 | [![Build Status](https://travis-ci.org/oSoc19/reliability-score-frontend.svg?branch=develop)](https://travis-ci.org/oSoc19/reliability-score-frontend) | [![Build Status](https://travis-ci.org/oSoc19/reliability-score-frontend.svg?branch=master)](https://travis-ci.org/oSoc19/reliability-score-frontend) |
 
 
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # TrainDelay
@@ -15,8 +21,8 @@ With TrainDelay you won't arrive too late at that important meeting again. Thank
 
 ## File structure
 
-├── _src						 		 # Source files
-├── _Component				 # All components (CSS Included)
+	├── src						 		 # Source files
+		├── Component				 # All components (CSS Included)
 				├── Header				# Header components (CSS Included)
 				├── PlannerPanel		# All components
 		├── Fonts						   # Fonts folder

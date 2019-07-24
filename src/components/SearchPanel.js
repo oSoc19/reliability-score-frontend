@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './SearchPanel.css'
-import DirectionForm from './DirectionForm';
+import DirectionForm from './DirectionForm'
 
 class SearchPanel extends Component {
     render() {

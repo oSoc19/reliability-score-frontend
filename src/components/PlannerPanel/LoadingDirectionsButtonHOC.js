@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 import { Redirect } from 'react-router-dom'
-import { changeHours } from '../Util';
+import { changeHours } from '../Util'
 
 const LoadingDirectionsButtonHOC = (WrappedComponent, addTime) => (
     class HOC extends Component {

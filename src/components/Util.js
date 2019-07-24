@@ -99,8 +99,6 @@ export const getStationReliability = station => {
 }
 
 export const getScore = direction => {
-    let worstTime = 0
-
     if (direction.vias) {
         for (let v of direction.vias.via) {
             // For each via, calculate the most probability of them

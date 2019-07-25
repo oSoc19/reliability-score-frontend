@@ -24,6 +24,14 @@ With TrainDelays you won't arrive too late at that important meeting again. Than
 	 ├── Images                 # Images folder
     ├── LICENSE
 
+**Fonts & Images:** Resources folders
+**Index.js:** Only page that loaded → used to root file (React Router)
+**Util.js:** Utilities functions (String & number conversion, etc)
+**LoadingDirectionsButtonHOC:** Simulate inheritance in React for Earlier/laterDirections.js
+**PlannerPanel folder:** All files about journey displaying
+**Header folder:** All files about header
+**Layout:** This component is used to embed the content (to avoid reload every time the header) but also to do the request to the API
+
 ## API Documentation
 API Documentation can be found at https://github.com/oSoc19/reliability-score-backend/blob/develop/README.md
 

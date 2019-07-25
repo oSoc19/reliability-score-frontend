@@ -18,6 +18,8 @@ html, body {
 .content {
     margin: auto;
     font-family: 'Work Sans', sans-serif;
+    position: relative;
+    z-index:99;
 }
 
 .white-box {
@@ -139,10 +141,11 @@ footer {
     padding: 10px;
     color: #fff;
     position: absolute;
-    bottom: 0;
+    bottom:0;
     width: 100%;
     text-align: center;
     font-family: 'Work Sans', sans-serif;
+    z-index:1;
 }
 
 footer img {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Timeline } from 'antd'
 import propTypes from 'prop-types'
-import { convertTimestampToTime, getTrainType } from '../Util'
+import { convertTimestampToTime, getTrainType } from '../../Util'
 import DirectionChart from './DirectionChart.js'
 
 class StationItem extends Component {

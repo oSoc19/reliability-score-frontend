@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './PlannerPanel.css'
-import DirectionCollection from './DirectionCollection'
+import DirectionCollection from './Direction/DirectionCollection'
 import DotsTutorial from './DotsTutorial'
 import Cookies from 'universal-cookie'
 import Loading from '../Loading'
@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom'
 import EarlierDirections from './EarlierDirections'
 import propTypes from 'prop-types'
 import Error from '../Error'
-import LaterDirections from './LaterDirections';
+import LaterDirections from './LaterDirections'
 
 class PlannerPanel extends Component {
     state = {
